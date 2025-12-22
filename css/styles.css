@@ -1212,4 +1212,944 @@ h4 { font-size: clamp(1.1rem, 2.5vw, 1.4rem); }
     .checkbox-group {
         grid-template-columns: 1fr;
     }
+
+    .nav {
+        display: none;
+    }
+
+    .facilities-grid,
+    .pricing-grid,
+    .compliance-items,
+    .benefits-grid,
+    .frequency-grid,
+    .testimonials,
+    .case-studies,
+    .for-who-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .why-grid,
+    .included-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .frequency-card.popular {
+        transform: scale(1);
+    }
+
+    .process-step {
+        grid-template-columns: 60px 1fr;
+        gap: 1rem;
+    }
+
+    .process-number {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+
+    .pricing-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==========================================================================
+   Program Pages - Additional Variables
+   ========================================================================== */
+:root {
+    --medical-red: #FF3366;
+    --medical-green: #00CC88;
+    --green: #00CC88;
+}
+
+/* ==========================================================================
+   Navigation (for subpages)
+   ========================================================================== */
+.nav {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav a {
+    color: var(--light-cyan);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav a:hover {
+    color: var(--white);
+}
+
+/* ==========================================================================
+   Program Page Hero
+   ========================================================================== */
+.hero-program {
+    background: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 100%);
+    padding: 4rem 2rem 6rem;
+    color: var(--white);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-program.prevent {
+    background: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 50%, #00AA88 100%);
+}
+
+.hero-program.clinic::before {
+    content: '🏥';
+    position: absolute;
+    font-size: 30rem;
+    opacity: 0.03;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.program-badge {
+    display: inline-block;
+    background: var(--cyan);
+    color: var(--dark-blue);
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.program-badge.red {
+    background: var(--medical-red);
+    color: var(--white);
+}
+
+.program-badge.green {
+    background: var(--green);
+    color: var(--white);
+}
+
+.hero-price {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--cyan);
+    margin: 2rem 0 1rem;
+}
+
+.hero-price-note {
+    color: var(--light-cyan);
+    margin-bottom: 2rem;
+}
+
+/* ==========================================================================
+   Section Utilities
+   ========================================================================== */
+.section {
+    padding: 4rem 2rem;
+}
+
+.section-alt {
+    background: var(--light-gray);
+}
+
+/* ==========================================================================
+   For Who Section (Reset page)
+   ========================================================================== */
+.for-who-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.for-who-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 20px;
+    border: 2px solid var(--medium-gray);
+    transition: all 0.3s ease;
+}
+
+.for-who-card:hover {
+    border-color: var(--cyan);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 40px rgba(0, 102, 255, 0.15);
+}
+
+.for-who-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.for-who-card h3 {
+    color: var(--dark-blue);
+    margin-bottom: 1rem;
+}
+
+.for-who-card ul {
+    list-style: none;
+    margin-top: 1rem;
+}
+
+.for-who-card li {
+    padding: 0.5rem 0;
+    color: var(--text-gray);
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.for-who-card li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--cyan);
+}
+
+/* ==========================================================================
+   What's Included Box
+   ========================================================================== */
+.whats-included {
+    background: var(--white);
+    border-radius: 25px;
+    padding: 3rem;
+    margin-top: 3rem;
+    border: 3px solid var(--cyan);
+}
+
+.included-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.included-item {
+    display: flex;
+    gap: 1rem;
+    align-items: start;
+}
+
+.included-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.included-item h4 {
+    color: var(--dark-blue);
+    margin-bottom: 0.5rem;
+}
+
+.included-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 20px;
+    border: 2px solid var(--medium-gray);
+    display: flex;
+    gap: 1.5rem;
+}
+
+.included-number {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--primary-blue), var(--cyan));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--white);
+    flex-shrink: 0;
+}
+
+/* ==========================================================================
+   Process Steps (Reset page)
+   ========================================================================== */
+.process-list {
+    max-width: 800px;
+    margin: 3rem auto 0;
+}
+
+.process-step {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.process-step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 40px;
+    top: 80px;
+    bottom: -3rem;
+    width: 2px;
+    background: linear-gradient(180deg, var(--cyan), var(--primary-blue));
+}
+
+.process-number {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--primary-blue), var(--cyan));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--white);
+    flex-shrink: 0;
+}
+
+.process-content {
+    padding-top: 1rem;
+}
+
+.process-content h3 {
+    color: var(--dark-blue);
+    margin-bottom: 0.5rem;
+}
+
+.process-content p {
+    color: var(--text-gray);
+    line-height: 1.8;
+}
+
+/* ==========================================================================
+   Pricing Table (Reset page)
+   ========================================================================== */
+.pricing-table {
+    background: var(--white);
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: 3rem;
+    box-shadow: 0 10px 40px rgba(0, 102, 255, 0.1);
+}
+
+.pricing-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    border-bottom: 1px solid var(--medium-gray);
+}
+
+.pricing-row:last-child {
+    border-bottom: none;
+}
+
+.pricing-row.header {
+    background: linear-gradient(135deg, var(--dark-blue), var(--primary-blue));
+    color: var(--white);
+}
+
+.pricing-cell {
+    padding: 1.5rem;
+}
+
+.pricing-row.header .pricing-cell {
+    font-weight: 700;
+}
+
+.pricing-highlight {
+    background: var(--light-gray);
+}
+
+/* ==========================================================================
+   CTA Box
+   ========================================================================== */
+.cta-box {
+    background: linear-gradient(135deg, var(--primary-blue), var(--cyan));
+    color: var(--white);
+    padding: 4rem 3rem;
+    border-radius: 25px;
+    text-align: center;
+    margin-top: 4rem;
+}
+
+.cta-box h2 {
+    color: var(--white);
+    margin-bottom: 1rem;
+}
+
+.cta-box p {
+    color: var(--light-cyan);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+/* ==========================================================================
+   Longevity Box (Prevent page)
+   ========================================================================== */
+.longevity-box {
+    background: linear-gradient(135deg, rgba(0, 204, 136, 0.1), rgba(0, 102, 255, 0.1));
+    border: 3px solid var(--green);
+    border-radius: 25px;
+    padding: 3rem;
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.longevity-box h3 {
+    color: var(--dark-blue);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.longevity-box p {
+    color: var(--text-gray);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   Benefits Grid (Prevent page)
+   ========================================================================== */
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.benefit-card {
+    background: var(--white);
+    padding: 2.5rem;
+    border-radius: 20px;
+    border: 2px solid var(--medium-gray);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.benefit-card:hover {
+    border-color: var(--green);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 40px rgba(0, 204, 136, 0.15);
+}
+
+.benefit-card .benefit-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+.benefit-card h3 {
+    color: var(--dark-blue);
+    margin-bottom: 1rem;
+}
+
+.benefit-card p {
+    color: var(--text-gray);
+    line-height: 1.8;
+}
+
+/* ==========================================================================
+   Frequency Options (Prevent page)
+   ========================================================================== */
+.frequency-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.frequency-card {
+    background: var(--white);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 3px solid var(--medium-gray);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.frequency-card.popular {
+    border-color: var(--cyan);
+    transform: scale(1.05);
+}
+
+.frequency-card.popular::before {
+    content: 'NEJOBLÍBENĚJŠÍ';
+    position: absolute;
+    top: 20px;
+    right: -30px;
+    background: var(--cyan);
+    color: var(--dark-blue);
+    padding: 0.3rem 3rem;
+    font-size: 0.75rem;
+    font-weight: 800;
+    transform: rotate(45deg);
+    letter-spacing: 1px;
+}
+
+.frequency-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 50px rgba(0, 102, 255, 0.2);
+}
+
+.frequency-header {
+    background: linear-gradient(135deg, var(--dark-blue), var(--primary-blue));
+    color: var(--white);
+    padding: 2rem;
+    text-align: center;
+}
+
+.frequency-card.popular .frequency-header {
+    background: linear-gradient(135deg, var(--primary-blue), var(--cyan));
+}
+
+.frequency-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.frequency-interval {
+    color: var(--light-cyan);
+    font-size: 0.95rem;
+}
+
+.frequency-body {
+    padding: 2rem;
+}
+
+.frequency-price {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--primary-blue);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.frequency-price-note {
+    text-align: center;
+    color: var(--text-gray);
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+}
+
+.frequency-features {
+    list-style: none;
+    margin: 1.5rem 0;
+}
+
+.frequency-features li {
+    padding: 0.75rem 0;
+    color: var(--text-gray);
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.frequency-features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--green);
+    font-weight: bold;
+}
+
+.frequency-cta {
+    width: 100%;
+    padding: 1rem;
+    background: var(--primary-blue);
+    color: var(--white);
+    border: none;
+    border-radius: 50px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.frequency-card.popular .frequency-cta {
+    background: var(--cyan);
+    color: var(--dark-blue);
+}
+
+/* ==========================================================================
+   Comparison Table (Prevent page)
+   ========================================================================== */
+.comparison-box {
+    background: var(--white);
+    border-radius: 25px;
+    padding: 3rem;
+    margin-top: 3rem;
+    border: 2px solid var(--medium-gray);
+}
+
+.comparison-table {
+    width: 100%;
+    margin-top: 2rem;
+    border-collapse: collapse;
+}
+
+.comparison-table th,
+.comparison-table td {
+    padding: 1.5rem;
+    text-align: left;
+    border-bottom: 1px solid var(--medium-gray);
+}
+
+.comparison-table th {
+    background: var(--light-gray);
+    font-weight: 700;
+    color: var(--dark-blue);
+}
+
+.comparison-table tr:last-child td {
+    border-bottom: none;
+}
+
+.check-icon {
+    color: var(--green);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.cross-icon {
+    color: var(--text-gray);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* ==========================================================================
+   Testimonials
+   ========================================================================== */
+.testimonials {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.testimonial-card {
+    background: var(--white);
+    padding: 2.5rem;
+    border-radius: 20px;
+    border-left: 4px solid var(--cyan);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.testimonial-text {
+    color: var(--text-gray);
+    font-style: italic;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.testimonial-author {
+    font-weight: 600;
+    color: var(--dark-blue);
+}
+
+.testimonial-role {
+    color: var(--text-gray);
+    font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   Healthcare Facilities (Clinic page)
+   ========================================================================== */
+.facilities-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.facility-card {
+    background: var(--white);
+    padding: 2.5rem;
+    border-radius: 20px;
+    border: 2px solid var(--medium-gray);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.facility-card:hover {
+    border-color: var(--medical-red);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 40px rgba(255, 51, 102, 0.15);
+}
+
+.facility-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+.facility-card h3 {
+    color: var(--dark-blue);
+    margin-bottom: 1rem;
+}
+
+.facility-card ul {
+    list-style: none;
+    text-align: left;
+    margin-top: 1rem;
+}
+
+.facility-card li {
+    padding: 0.5rem 0;
+    color: var(--text-gray);
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.facility-card li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--medical-green);
+    font-weight: bold;
+}
+
+/* ==========================================================================
+   Why Healthcare Box (Clinic page)
+   ========================================================================== */
+.why-healthcare {
+    background: linear-gradient(135deg, rgba(255, 51, 102, 0.1), rgba(0, 102, 255, 0.1));
+    border: 3px solid var(--medical-red);
+    border-radius: 25px;
+    padding: 3rem;
+    margin-top: 3rem;
+}
+
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.why-item {
+    display: flex;
+    gap: 1rem;
+    align-items: start;
+}
+
+.why-icon {
+    font-size: 2.5rem;
+    flex-shrink: 0;
+}
+
+.why-item h4 {
+    color: var(--dark-blue);
+    margin-bottom: 0.5rem;
+}
+
+.why-item p {
+    color: var(--text-gray);
+    line-height: 1.7;
+}
+
+/* ==========================================================================
+   Compliance Box (Clinic page)
+   ========================================================================== */
+.compliance-box {
+    background: var(--white);
+    border-radius: 25px;
+    padding: 3rem;
+    margin-top: 3rem;
+    border: 3px solid var(--medical-green);
+}
+
+.compliance-items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.compliance-item {
+    text-align: center;
+}
+
+.compliance-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.compliance-item h4 {
+    color: var(--dark-blue);
+    margin-bottom: 0.5rem;
+}
+
+.compliance-item p {
+    color: var(--text-gray);
+    font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   Pricing Grid (Clinic page)
+   ========================================================================== */
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.pricing-card {
+    background: var(--white);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 3px solid var(--medium-gray);
+    transition: all 0.3s ease;
+}
+
+.pricing-card.featured {
+    border-color: var(--medical-red);
+    transform: scale(1.05);
+}
+
+.pricing-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 50px rgba(0, 102, 255, 0.2);
+}
+
+.pricing-header {
+    background: linear-gradient(135deg, var(--dark-blue), var(--primary-blue));
+    color: var(--white);
+    padding: 2rem;
+    text-align: center;
+}
+
+.pricing-card.featured .pricing-header {
+    background: linear-gradient(135deg, var(--medical-red), var(--primary-blue));
+}
+
+.pricing-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.pricing-subtitle {
+    color: var(--light-cyan);
+    font-size: 0.95rem;
+}
+
+.pricing-body {
+    padding: 2rem;
+}
+
+.pricing-price {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--primary-blue);
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.pricing-interval {
+    text-align: center;
+    color: var(--text-gray);
+    margin-bottom: 2rem;
+}
+
+.pricing-features {
+    list-style: none;
+    margin: 1.5rem 0;
+}
+
+.pricing-features li {
+    padding: 0.75rem 0;
+    color: var(--text-gray);
+    position: relative;
+    padding-left: 1.5rem;
+    line-height: 1.6;
+}
+
+.pricing-features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--medical-green);
+    font-weight: bold;
+}
+
+.pricing-cta {
+    width: 100%;
+    padding: 1rem;
+    background: var(--primary-blue);
+    color: var(--white);
+    border: none;
+    border-radius: 50px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.pricing-card.featured .pricing-cta {
+    background: var(--medical-red);
+}
+
+/* ==========================================================================
+   Case Studies (Clinic page)
+   ========================================================================== */
+.case-studies {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.case-card {
+    background: var(--white);
+    padding: 2.5rem;
+    border-radius: 20px;
+    border-left: 4px solid var(--medical-red);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.case-type {
+    display: inline-block;
+    background: var(--light-gray);
+    color: var(--dark-blue);
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+/* ==========================================================================
+   Timeline for Clinic page
+   ========================================================================== */
+.timeline-clinic {
+    max-width: 900px;
+    margin: 3rem auto 0;
+    position: relative;
+}
+
+.timeline-clinic::before {
+    content: '';
+    position: absolute;
+    left: 40px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, var(--medical-red), var(--primary-blue));
+}
+
+.timeline-clinic .timeline-item {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.timeline-clinic .timeline-number {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    z-index: 2;
+}
+
+.timeline-clinic .timeline-content {
+    flex: 1;
+    margin-top: 1rem;
 }

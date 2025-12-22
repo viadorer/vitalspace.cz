@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset Prostoru | Jednorázová ozonová sanitace | VitalSpace</title>
+    <meta name="description" content="Jednorázová ozonová sanitace prostoru. Ideální po nájemnících, po rekonstrukci, při zápachu. Bez chemie, rychle, účinně.">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #0066FF;
+            --dark-blue: #001F3F;
+            --cyan: #00D4FF;
+            --light-cyan: #6FEFFF;
+            --white: #FFFFFF;
+            --light-gray: #F5F9FF;
+            --medium-gray: #E8F1FF;
+            --text-dark: #1A2332;
+            --text-gray: #4A5568;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
+        h2 { font-size: clamp(1.75rem, 4vw, 2.75rem); }
+        h3 { font-size: clamp(1.25rem, 3vw, 1.75rem); }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 100%);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 102, 255, 0.2);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--cyan);
+        }
+
+        .nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav a {
+            color: var(--light-cyan);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav a:hover {
+            color: var(--white);
+        }
+
+        .header-cta {
+            background: var(--cyan);
+            color: var(--dark-blue);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 100%);
+            padding: 4rem 2rem 6rem;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .program-badge {
+            display: inline-block;
+            background: var(--cyan);
+            color: var(--dark-blue);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--light-cyan);
+            margin-bottom: 2rem;
+        }
+
+        .hero-price {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--cyan);
+            margin: 2rem 0 1rem;
+        }
+
+        .hero-price-note {
+            color: var(--light-cyan);
+            margin-bottom: 2rem;
+        }
+
+        .btn-primary {
+            background: var(--cyan);
+            color: var(--dark-blue);
+            padding: 1.25rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+            box-shadow: 0 4px 20px rgba(0, 212, 255, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 30px rgba(0, 212, 255, 0.6);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            padding: 4rem 2rem;
+        }
+
+        .section-alt {
+            background: var(--light-gray);
+        }
+
+        /* For Who Section */
+        .for-who-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .for-who-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 2px solid var(--medium-gray);
+            transition: all 0.3s ease;
+        }
+
+        .for-who-card:hover {
+            border-color: var(--cyan);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0, 102, 255, 0.15);
+        }
+
+        .for-who-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .for-who-card h3 {
+            color: var(--dark-blue);
+            margin-bottom: 1rem;
+        }
+
+        .for-who-card ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .for-who-card li {
+            padding: 0.5rem 0;
+            color: var(--text-gray);
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .for-who-card li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--cyan);
+        }
+
+        /* What's Included */
+        .whats-included {
+            background: var(--white);
+            border-radius: 25px;
+            padding: 3rem;
+            margin-top: 3rem;
+            border: 3px solid var(--cyan);
+        }
+
+        .included-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .included-item {
+            display: flex;
+            gap: 1rem;
+            align-items: start;
+        }
+
+        .included-icon {
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+
+        .included-item h4 {
+            color: var(--dark-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Process Timeline */
+        .process-list {
+            max-width: 800px;
+            margin: 3rem auto 0;
+        }
+
+        .process-step {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .process-step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 40px;
+            top: 80px;
+            bottom: -3rem;
+            width: 2px;
+            background: linear-gradient(180deg, var(--cyan), var(--primary-blue));
+        }
+
+        .process-number {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--cyan));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--white);
+            flex-shrink: 0;
+        }
+
+        .process-content {
+            padding-top: 1rem;
+        }
+
+        .process-content h3 {
+            color: var(--dark-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .process-content p {
+            color: var(--text-gray);
+            line-height: 1.8;
+        }
+
+        /* Pricing Table */
+        .pricing-table {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            margin-top: 3rem;
+            box-shadow: 0 10px 40px rgba(0, 102, 255, 0.1);
+        }
+
+        .pricing-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            border-bottom: 1px solid var(--medium-gray);
+        }
+
+        .pricing-row:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-row.header {
+            background: linear-gradient(135deg, var(--dark-blue), var(--primary-blue));
+            color: var(--white);
+        }
+
+        .pricing-cell {
+            padding: 1.5rem;
+        }
+
+        .pricing-row.header .pricing-cell {
+            font-weight: 700;
+        }
+
+        .pricing-highlight {
+            background: var(--light-gray);
+        }
+
+        /* CTA Box */
+        .cta-box {
+            background: linear-gradient(135deg, var(--primary-blue), var(--cyan));
+            color: var(--white);
+            padding: 4rem 3rem;
+            border-radius: 25px;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .cta-box h2 {
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .cta-box p {
+            color: var(--light-cyan);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn-secondary {
+            background: var(--white);
+            color: var(--dark-blue);
+            padding: 1.25rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        /* FAQ */
+        .faq-list {
+            max-width: 800px;
+            margin: 3rem auto 0;
+        }
+
+        .faq-item {
+            background: var(--white);
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            border: 2px solid var(--medium-gray);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--dark-blue);
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '−';
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        .faq-answer-content {
+            padding: 0 1.5rem 1.5rem;
+            color: var(--text-gray);
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-blue);
+            color: var(--white);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer h3 {
+            color: var(--cyan);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer ul {
+            list-style: none;
+        }
+
+        .footer li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer a {
+            color: var(--light-cyan);
+            text-decoration: none;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--light-cyan);
+        }
+
+        @media (max-width: 768px) {
+            .included-grid,
+            .pricing-row {
+                grid-template-columns: 1fr;
+            }
+
+            .process-step {
+                grid-template-columns: 60px 1fr;
+                gap: 1rem;
+            }
+
+            .process-number {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+
+            .nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="vitalspace-landing.html" class="logo">Vital<span>Space</span></a>
+            <nav class="nav">
+                <a href="vitalspace-landing.html#programs">Programy</a>
+                <a href="vitalspace-landing.html#how">Jak to funguje</a>
+                <a href="#form" class="header-cta">Poptávka</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="program-badge">Jednorázová sanitace</span>
+            <h1>Reset Prostoru</h1>
+            <p class="hero-subtitle">Komplexní ozonová sanitace prostoru bez chemie. Ideální po nájemnících, po rekonstrukci, při zápachu nebo jako jednorázové ošetření.</p>
+            <div class="hero-price">od 2 900 Kč</div>
+            <p class="hero-price-note">Cena dle velikosti prostoru • Garsonka/1+1: 2 900–4 900 Kč • 2+1/3+kk: 4 900–7 900 Kč</p>
+            <a href="#form" class="btn-primary">Objednat Reset prostoru</a>
+        </div>
+    </section>
+
+    <!-- For Who -->
+    <section class="section">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 3rem;">Pro koho je Reset prostoru</h2>
+            
+            <div class="for-who-grid">
+                <div class="for-who-card">
+                    <div class="for-who-icon">🏠</div>
+                    <h3>Po nájemnících</h3>
+                    <p>Vrátíte byt do pronájmu čistý a hygienicky ošetřený.</p>
+                    <ul>
+                        <li>Odstranění zápachu</li>
+                        <li>Likvidace bakterií</li>
+                        <li>Osvěžení prostoru</li>
+                        <li>Rychlé zprovoznění</li>
+                    </ul>
+                </div>
+
+                <div class="for-who-card">
+                    <div class="for-who-icon">🔨</div>
+                    <h3>Po rekonstrukci</h3>
+                    <p>Odstranění stavebního prachu, zápachu materiálů a kontaminace.</p>
+                    <ul>
+                        <li>Čistý vzduch po stavbě</li>
+                        <li>Bez VOC látek</li>
+                        <li>Sanitace povrchů</li>
+                        <li>Připraveno k nastěhování</li>
+                    </ul>
+                </div>
+
+                <div class="for-who-card">
+                    <div class="for-who-icon">👃</div>
+                    <h3>Problémy se zápachem</h3>
+                    <p>Efektivní odstranění všech typů organických pachů.</p>
+                    <ul>
+                        <li>Zápach z kouře</li>
+                        <li>Zatuchlina</li>
+                        <li>Pachy zvířat</li>
+                        <li>Organické zápachy</li>
+                    </ul>
+                </div>
+
+                <div class="for-who-card">
+                    <div class="for-who-icon">🦠</div>
+                    <h3>Po nemoci</h3>
+                    <p>Sanitace prostoru po infekčním onemocnění v domácnosti.</p>
+                    <ul>
+                        <li>Likvidace virů</li>
+                        <li>Eliminace bakterií</li>
+                        <li>Preventivní ošetření</li>
+                        <li>Ochrana ostatních</li>
+                    </ul>
+                </div>
+
+                <div class="for-who-card">
+                    <div class="for-who-icon">🔑</div>
+                    <h3>Prodej/koupě nemovitosti</h3>
+                    <p>Hygienické zprovoznění nemovitosti před prodejem nebo po koupi.</p>
+                    <ul>
+                        <li>Vyšší hodnota nemovitosti</li>
+                        <li>První dojem kupujícího</li>
+                        <li>Bezpečné nastěhování</li>
+                        <li>Marketingové plus</li>
+                    </ul>
+                </div>
+
+                <div class="for-who-card">
+                    <div class="for-who-icon">🏚️</div>
+                    <h3>Dlouhodobě neobydlené</h3>
+                    <p>Zprovoznění bytu či domu po delším období bez užívání.</p>
+                    <ul>
+                        <li>Odstranění zatuchlosti</li>
+                        <li>Sanitace prostoru</li>
+                        <li>Prevence plísní</li>
+                        <li>Osvěžení vzduchu</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What's Included -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 style="text-align: center;">Co je součástí Reset prostoru</h2>
+            
+            <div class="whats-included">
+                <div class="included-grid">
+                    <div class="included-item">
+                        <div class="included-icon">🔍</div>
+                        <div>
+                            <h4>Prohlídka a posouzení</h4>
+                            <p>Zjištění stavu prostoru, identifikace problémů, návrh optimálního postupu.</p>
+                        </div>
+                    </div>
+
+                    <div class="included-item">
+                        <div class="included-icon">📋</div>
+                        <div>
+                            <h4>Příprava prostoru</h4>
+                            <p>Instruktáž k příprave, uzavření citlivých materiálů, zajištění bezpečnosti.</p>
+                        </div>
+                    </div>
+
+                    <div class="included-item">
+                        <div class="included-icon">⚡</div>
+                        <div>
+                            <h4>Ozonová sanitace</h4>
+                            <p>Řízený cyklus s technologií OZON CLEANER, plošné ošetření celého prostoru.</p>
+                        </div>
+                    </div>
+
+                    <div class="included-item">
+                        <div class="included-icon">🌬️</div>
+                        <div>
+                            <h4>Rozpad a odvětrání</h4>
+                            <p>Bezpečnostní čekací doba, kontrolované odvětrání, měření koncentrace.</p>
+                        </div>
+                    </div>
+
+                    <div class="included-item">
+                        <div class="included-icon">✅</div>
+                        <div>
+                            <h4>Kontrola a předání</h4>
+                            <p>Finální kontrola kvality vzduchu, předání prostoru k užívání.</p>
+                        </div>
+                    </div>
+
+                    <div class="included-item">
+                        <div class="included-icon">💡</div>
+                        <div>
+                            <h4>Doporučení prevence</h4>
+                            <p>Rady pro udržení kvality prostředí, prevence opakování problémů.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section class="section">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 1rem;">Jak Reset prostoru probíhá</h2>
+            <p style="text-align: center; color: var(--text-gray); max-width: 700px; margin: 0 auto 4rem;">Od první konzultace po předání čistého prostoru. Celý proces trvá typicky 4–6 hodin.</p>
+
+            <div class="process-list">
+                <div class="process-step">
+                    <div class="process-number">1</div>
+                    <div class="process-content">
+                        <h3>Objednávka a domluva termínu</h3>
+                        <p>Vyplníte formulář nebo zavoláte. Domluvíme termín, který vám vyhovuje – typicky v průběhu týdne od objednávky.</p>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="process-number">2</div>
+                    <div class="process-content">
+                        <h3>Příprava prostoru (den před)</h3>
+                        <p>Prostor vyprázdníte od osob, zvířat a rostlin. Citlivé předměty zakryjete nebo odstraníte dle našich instrukcí.</p>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="process-number">3</div>
+                    <div class="process-content">
+                        <h3>Prohlídka a nastavení (30 min)</h3>
+                        <p>Technik prohlédne prostor, zkontroluje přípravu, nastaví parametry a spustí sanitační cyklus.</p>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="process-number">4</div>
+                    <div class="process-content">
+                        <h3>Sanitační cyklus (2–4 hod)</h3>
+                        <p>Ozon se rozptýlí do celého prostoru a likviduje bakterie, viry, plísně, spory i zápachy. Prostor je uzavřený.</p>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="process-number">5</div>
+                    <div class="process-content">
+                        <h3>Rozpad ozonu (min. 100 min)</h3>
+                        <p>Po ukončení cyklu čekáme na přirozený rozpad ozonu na kyslík. Prostor zůstává uzavřený.</p>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="process-number">6</div>
+                    <div class="process-content">
+                        <h3>Odvětrání a předání (30–60 min)</h3>
+                        <p>Technik odvětrá prostor, zkontroluje kvalitu vzduchu a předá vám sanitovaný prostor připravený k užívání.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 1rem;">Ceník Reset prostoru</h2>
+            <p style="text-align: center; color: var(--text-gray); max-width: 700px; margin: 0 auto 3rem;">Ceny jsou orientační a závisí na přesné velikosti, členitosti prostoru a dojezdu.</p>
+
+            <div class="pricing-table">
+                <div class="pricing-row header">
+                    <div class="pricing-cell">Typ prostoru</div>
+                    <div class="pricing-cell">Velikost</div>
+                    <div class="pricing-cell">Cena</div>
+                </div>
+                <div class="pricing-row">
+                    <div class="pricing-cell"><strong>Garsonka / 1+kk</strong></div>
+                    <div class="pricing-cell">do 35 m²</div>
+                    <div class="pricing-cell"><strong>2 900 – 3 900 Kč</strong></div>
+                </div>
+                <div class="pricing-row pricing-highlight">
+                    <div class="pricing-cell"><strong>1+1 / 2+kk</strong></div>
+                    <div class="pricing-cell">35–60 m²</div>
+                    <div class="pricing-cell"><strong>3 900 – 4 900 Kč</strong></div>
+                </div>
+                <div class="pricing-row">
+                    <div class="pricing-cell"><strong>2+1 / 3+kk</strong></div>
+                    <div class="pricing-cell">60–90 m²</div>
+                    <div class="pricing-cell"><strong>4 900 – 6 900 Kč</strong></div>
+                </div>
+                <div class="pricing-row pricing-highlight">
+                    <div class="pricing-cell"><strong>3+1 / 4+kk</strong></div>
+                    <div class="pricing-cell">90–120 m²</div>
+                    <div class="pricing-cell"><strong>6 900 – 8 900 Kč</strong></div>
+                </div>
+                <div class="pricing-row">
+                    <div class="pricing-cell"><strong>Velký byt / menší RD</strong></div>
+                    <div class="pricing-cell">120–180 m²</div>
+                    <div class="pricing-cell"><strong>8 900 – 11 900 Kč</strong></div>
+                </div>
+                <div class="pricing-row pricing-highlight">
+                    <div class="pricing-cell"><strong>Rodinný dům</strong></div>
+                    <div class="pricing-cell">180–250 m²</div>
+                    <div class="pricing-cell"><strong>11 900 – 15 900 Kč</strong></div>
+                </div>
+                <div class="pricing-row">
+                    <div class="pricing-cell"><strong>Další cyklus v témže místě</strong></div>
+                    <div class="pricing-cell">—</div>
+                    <div class="pricing-cell"><strong>+ 1 500 – 3 000 Kč</strong></div>
+                </div>
+            </div>
+
+            <p style="text-align: center; margin-top: 2rem; color: var(--text-gray);">
+                <strong>Poznámka:</strong> Ceny jsou uvedeny včetně DPH. Přesnou cenu obdržíte po vyplnění poptávky.
+            </p>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 1rem;">Časté dotazy k Reset prostoru</h2>
+
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">Jak dlouho musím prostor opustit?</div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Celkově počítejte s 4–6 hodinami, během kterých nesmí být v prostoru nikdo přítomen. To zahrnuje sanitační cyklus (2–4 hod), rozpad ozonu (min. 100 min) a odvětrání (30–60 min).
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Musím něco speciálně připravit?</div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Ano – prostor musí být prázdný (bez osob, zvířat, rostlin). Citlivé věci (některé plasty, elektronika) je vhodné zakrýt nebo odstranit. Pošleme vám podrobný checklist den před sanitací.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Odstráníte tím i plíseň?</div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Ozon likviduje aktivní plísně a jejich spory. Pokud je ale příčinou vlhkost (tepelný most, kondenzace), plíseň se může vrátit. V tom případě doporučíme řešení příčiny vlhkosti.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Je to bezpečné pro děti a domácí zvířata?</div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Ano – po dokončení procesu a odvětrání je prostor zcela bezpečný. Ozon se rozpadá na kyslík a nezanechává žádná rezidua. Bezpečnější než klasické chemické dezinfekce.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Můžu být u toho přítomen?</div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Ne, během sanitace nesmí být v prostoru nikdo. Technik prostor pouze nastaví a spustí, pak odejde. Vrátí se až po dokončení cyklu pro odvětrání a kontrolu.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Jak rychle můžu objednat?</div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Standardně termín během 3–7 dnů. V případě urgence (např. rychlé zprovoznění bytu pro nového nájemníka) se pokusíme domluvit i dříve.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="cta-box" id="form">
+                <h2>Objednejte Reset prostoru</h2>
+                <p>Vyplňte formulář a ozveme se s potvrzením termínu a přesnou cenou.</p>
+                <a href="vitalspace-landing.html#form" class="btn-secondary">Vyplnit poptávku</a>
+                <p style="margin-top: 1.5rem; font-size: 0.95rem;">nebo volejte: <strong>+420 734 451 278</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div>
+                <h3>VitalSpace</h3>
+                <p style="color: var(--light-cyan); margin-top: 1rem;">
+                    Profesionální sanitace prostoru ozonem.
+                </p>
+            </div>
+            <div>
+                <h3>Programy</h3>
+                <ul>
+                    <li><a href="program-reset.html">Reset prostoru</a></li>
+                    <li><a href="program-prevent.html">Prevent program</a></li>
+                    <li><a href="program-clinic.html">Clinic Standard</a></li>
+                    <li><a href="program-pronajem.html">Pronájem</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Kontakt</h3>
+                <ul>
+                    <li>+420 734 451 278</li>
+                    <li>info@vitalspace.cz</li>
+                    <li>Plzeň & Praha</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 VitalSpace | <a href="#">Ochrana osobních údajů</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const isActive = item.classList.contains('active');
+                
+                document.querySelectorAll('.faq-item').forEach(i => {
+                    i.classList.remove('active');
+                });
+                
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

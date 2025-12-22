@@ -7,8 +7,12 @@ Profesionální landing page pro službu ozonové sanitace prostoru.
 ```
 VitalSpace/
 ├── index.html              # Hlavní stránka (modulární struktura)
+├── pages/                  # Podstránky programů
+│   ├── reset.html          # Reset prostoru - jednorázová sanitace
+│   ├── prevent.html        # Prevent program - pravidelná sanitace
+│   └── clinic.html         # Clinic Standard - pro zdravotnictví
 ├── css/
-│   └── styles.css          # Všechny styly
+│   └── styles.css          # Všechny styly (včetně podstránek)
 ├── js/
 │   └── main.js             # JavaScript funkce
 ├── images/                 # Složka pro obrázky
@@ -24,6 +28,8 @@ VitalSpace/
 │       ├── ozon-clean-up.jpg
 │       └── ozon-clean-box.jpg
 ├── vitalspace-landing.html # Původní verze (záloha)
+├── vitalspace-landing-2.html # Verze 2 (záloha)
+├── program-*.html          # Původní podstránky (záloha)
 ├── .gitignore
 └── README.md
 ```

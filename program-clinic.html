@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clinic Standard | Sanitace pro zdravotnictví | VitalSpace</title>
+    <meta name="description" content="Pravidelná ozonová sanitace pro zdravotnická zařízení. Mimo provoz, s protokolem, opakovatelně. Standard pro ordinace, kliniky, čekárny.">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #0066FF;
+            --dark-blue: #001F3F;
+            --cyan: #00D4FF;
+            --light-cyan: #6FEFFF;
+            --white: #FFFFFF;
+            --light-gray: #F5F9FF;
+            --medium-gray: #E8F1FF;
+            --text-dark: #1A2332;
+            --text-gray: #4A5568;
+            --medical-red: #FF3366;
+            --medical-green: #00CC88;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
+        h2 { font-size: clamp(1.75rem, 4vw, 2.75rem); }
+        h3 { font-size: clamp(1.25rem, 3vw, 1.75rem); }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 100%);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 102, 255, 0.2);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--cyan);
+        }
+
+        .nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav a {
+            color: var(--light-cyan);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav a:hover {
+            color: var(--white);
+        }
+
+        .header-cta {
+            background: var(--cyan);
+            color: var(--dark-blue);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 100%);
+            padding: 4rem 2rem 6rem;
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '🏥';
+            position: absolute;
+            font-size: 30rem;
+            opacity: 0.03;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .program-badge {
+            display: inline-block;
+            background: var(--medical-red);
+            color: var(--white);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--light-cyan);
+            margin-bottom: 2rem;
+        }
+
+        .hero-price {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--cyan);
+            margin: 2rem 0 1rem;
+        }
+
+        .hero-price-note {
+            color: var(--light-cyan);
+            margin-bottom: 2rem;
+        }
+
+        .btn-primary {
+            background: var(--cyan);
+            color: var(--dark-blue);
+            padding: 1.25rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+            box-shadow: 0 4px 20px rgba(0, 212, 255, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 30px rgba(0, 212, 255, 0.6);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            padding: 4rem 2rem;
+        }
+
+        .section-alt {
+            background: var(--light-gray);
+        }
+
+        /* Healthcare Facilities */
+        .facilities-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .facility-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 2px solid var(--medium-gray);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .facility-card:hover {
+            border-color: var(--medical-red);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(255, 51, 102, 0.15);
+        }
+
+        .facility-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .facility-card h3 {
+            color: var(--dark-blue);
+            margin-bottom: 1rem;
+        }
+
+        .facility-card ul {
+            list-style: none;
+            text-align: left;
+            margin-top: 1rem;
+        }
+
+        .facility-card li {
+            padding: 0.5rem 0;
+            color: var(--text-gray);
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .facility-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--medical-green);
+            font-weight: bold;
+        }
+
+        /* Why Healthcare */
+        .why-healthcare {
+            background: linear-gradient(135deg, rgba(255, 51, 102, 0.1), rgba(0, 102, 255, 0.1));
+            border: 3px solid var(--medical-red);
+            border-radius: 25px;
+            padding: 3rem;
+            margin-top: 3rem;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .why-item {
+            display: flex;
+            gap: 1rem;
+            align-items: start;
+        }
+
+        .why-icon {
+            font-size: 2.5rem;
+            flex-shrink: 0;
+        }
+
+        .why-item h4 {
+            color: var(--dark-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .why-item p {
+            color: var(--text-gray);
+            line-height: 1.7;
+        }
+
+        /* What's Included */
+        .included-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .included-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 2px solid var(--medium-gray);
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .included-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--cyan));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--white);
+            flex-shrink: 0;
+        }
+
+        .included-card h4 {
+            color: var(--dark-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Compliance Box */
+        .compliance-box {
+            background: var(--white);
+            border-radius: 25px;
+            padding: 3rem;
+            margin-top: 3rem;
+            border: 3px solid var(--medical-green);
+        }
+
+        .compliance-items {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .compliance-item {
+            text-align: center;
+        }
+
+        .compliance-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .compliance-item h4 {
+            color: var(--dark-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .compliance-item p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        /* Pricing Plans */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pricing-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 3px solid var(--medium-gray);
+            transition: all 0.3s ease;
+        }
+
+        .pricing-card.featured {
+            border-color: var(--medical-red);
+            transform: scale(1.05);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0, 102, 255, 0.2);
+        }
+
+        .pricing-header {
+            background: linear-gradient(135deg, var(--dark-blue), var(--primary-blue));
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .pricing-card.featured .pricing-header {
+            background: linear-gradient(135deg, var(--medical-red), var(--primary-blue));
+        }
+
+        .pricing-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-subtitle {
+            color: var(--light-cyan);
+            font-size: 0.95rem;
+        }
+
+        .pricing-body {
+            padding: 2rem;
+        }
+
+        .pricing-price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-interval {
+            text-align: center;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .pricing-features li {
+            padding: 0.75rem 0;
+            color: var(--text-gray);
+            position: relative;
+            padding-left: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--medical-green);
+            font-weight: bold;
+        }
+
+        .pricing-cta {
+            width: 100%;
+            padding: 1rem;
+            background: var(--primary-blue);
+            color: var(--white);
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-card.featured .pricing-cta {
+            background: var(--medical-red);
+        }
+
+        /* Process Timeline */
+        .timeline {
+            max-width: 900px;
+            margin: 3rem auto 0;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 40px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--medical-red), var(--primary-blue));
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-number {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--cyan));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--white);
+            flex-shrink: 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .timeline-content {
+            flex: 1;
+            background: var(--light-gray);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 1rem;
+        }
+
+        .timeline-content h3 {
+            color: var(--dark-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content p {
+            color: var(--text-gray);
+            line-height: 1.8;
+        }
+
+        /* Case Studies */
+        .case-studies {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .case-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border-left: 4px solid var(--medical-red);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .case-type {
+            display: inline-block;
+            background: var(--light-gray);
+            color: var(--dark-blue);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .case-card h3 {
+            color: var(--dark-blue);
+            margin-bottom: 1rem;
+        }
+
+        .case-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin: 1.5rem 0;
+            padding: 1.5rem;
+            background: var(--light-gray);
+            border-radius: 10px;
+        }
+
+        .case-stat {
+            text-align: center;
+        }
+
+        .case-stat-number {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            display: block;
+        }
+
+        .case-stat-label {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+        }
+
+        .case-result {
+            color: var(--text-gray);
+            line-height: 1.8;
+            margin-top: 1rem;
+        }
+
+        /* CTA Box */
+        .cta-box {
+            background: linear-gradient(135deg, var(--medical-red), var(--primary-blue));
+            color: var(--white);
+            padding: 4rem 3rem;
+            border-radius: 25px;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .cta-box h2 {
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .cta-box p {
+            color: var(--light-cyan);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn-secondary {
+            background: var(--white);
+            color: var(--dark-blue);
+            padding: 1.25rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-blue);
+            color: var(--white);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer h3 {
+            color: var(--cyan);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer ul {
+            list-style: none;
+        }
+
+        .footer li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer a {
+            color: var(--light-cyan);
+            text-decoration: none;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--light-cyan);
+        }
+
+        @media (max-width: 768px) {
+            .facilities-grid,
+            .why-grid,
+            .included-grid,
+            .compliance-items,
+            .pricing-grid,
+            .case-studies {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-number {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+
+            .nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="vitalspace-landing.html" class="logo">Vital<span>Space</span></a>
+            <nav class="nav">
+                <a href="vitalspace-landing.html#programs">Programy</a>
+                <a href="vitalspace-landing.html#how">Jak to funguje</a>
+                <a href="#form" class="header-cta">Poptávka</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="program-badge">Pro zdravotnictví</span>
+            <h1>Clinic Standard</h1>
+            <p class="hero-subtitle">Pravidelná sanitace pro zdravotnická zařízení. Mimo provoz, s protokolem zásahu, dokumentací a opakovatelností. Standard pro ordinace, kliniky, čekárny.</p>
+            <div class="hero-price">od 12 900 Kč</div>
+            <p class="hero-price-note">Jednorázově nebo pravidelný režim 1–4× měsíčně • Cena dle rozsahu a frekvence</p>
+            <a href="#form" class="btn-primary">Zpracovat nabídku</a>
+        </div>
+    </section>
+
+    <!-- Healthcare Facilities -->
+    <section class="section">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 1rem;">Pro jaká zdravotnická zařízení</h2>
+            <p style="text-align: center; color: var(--text-gray); max-width: 700px; margin: 0 auto 3rem;">Clinic Standard je navržen pro všechny typy zdravotnických prostor, kde je hygienický standard klíčový.</p>
+
+            <div class="facilities-grid">
+                <div class="facility-card">
+                    <div class="facility-icon">🏥</div>
+                    <h3>Ordinace a kliniky</h3>
+                    <ul>
+                        <li>Ordinace praktických lékařů</li>
+                        <li>Specializované ordinace</li>
+                        <li>Soukromé kliniky</li>
+                        <li>Ambulance</li>
+                        <li>Rehabilitační pracoviště</li>
+                    </ul>
+                </div>
+
+                <div class="facility-card">
+                    <div class="facility-icon">🦷</div>
+                    <h3>Stomatologie</h3>
+                    <ul>
+                        <li>Zubní ordinace</li>
+                        <li>Ošetřovny</li>
+                        <li>Čekárny</li>
+                        <li>Sterilizační místnosti</li>
+                        <li>Zázemí personálu</li>
+                    </ul>
+                </div>
+
+                <div class="facility-card">
+                    <div class="facility-icon">💉</div>
+                    <h3>Odběrová místa</h3>
+                    <ul>
+                        <li>Odběry krve</li>
+                        <li>PCR testování</li>
+                        <li>Očkovací centra</li>
+                        <li>Laboratoře</li>
+                        <li>Diagnostická pracoviště</li>
+                    </ul>
+                </div>
+
+                <div class="facility-card">
+                    <div class="facility-icon">👶</div>
+                    <h3>Pediatrie</h3>
+                    <ul>
+                        <li>Dětské ordinace</li>
+                        <li>Čekárny pro děti</li>
+                        <li>Očkovací místnosti</li>
+                        <li>Poradny</li>
+                        <li>Herní zóny</li>
+                    </ul>
+                </div>
+
+                <div class="facility-card">
+                    <div class="facility-icon">🧘</div>
+                    <h3>Wellness & Spa</h3>
+                    <ul>
+                        <li>Masážní salóny</li>
+                        <li>Fyzioterapie</li>
+                        <li>Wellness centra</li>
+                        <li>Relaxační prostory</li>
+                        <li>Zázemí klientů</li>
+                    </ul>
+                </div>
+
+                <div class="facility-card">
+                    <div class="facility-icon">👴</div>
+                    <h3>Pobytová zařízení</h3>
+                    <ul>
+                        <li>Domovy seniorů</li>
+                        <li>Denní stacionáře</li>
+                        <li>Ošetřovatelská lůžka</li>
+                        <li>Společné prostory</li>
+                        <li>Sociální služby</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Healthcare Needs This -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 1rem;">Proč zdravotnictví potřebuje<br>specializovanou sanitaci</h2>
+
+            <div class="why-healthcare">
+                <div class="why-grid">
+                    <div class="why-item">
+                        <div class="why-icon">⚠️</div>
+                        <div>
+                            <h4>Vysoká koncentrace patogenů</h4>
+                            <p>Ve zdravotnických zařízeních se koncentrují nemocní lidé a s nimi i patogeny. Běžný úklid nestačí – mikroorganismy se usazují i na místech, kam se mop nedostane.</p>
+                        </div>
+                    </div>
+
+                    <div class="why-item">
+                        <div class="why-icon">🔄</div>
+                        <div>
+                            <h4>Riziko přenosu mezi pacienty</h4>
+                            <p>Čekárny a ošetřovny jsou místem, kde se střídají pacienti s různými diagnózami. Bez účinné sanitace roste riziko nozokomiálních infekcí.</p>
+                        </div>
+                    </div>
+
+                    <div class="why-item">
+                        <div class="why-icon">🛡️</div>
+                        <div>
+                            <h4>Ochrana personálu</h4>
+                            <p>Zdravotničtí pracovníci jsou vystaveni patogenům denně. Pravidelná sanitace prostoru chrání jejich zdraví a snižuje absenci z důvodu nemoci.</p>
+                        </div>
+                    </div>
+
+                    <div class="why-item">
+                        <div class="why-icon">☣️</div>
+                        <div>
+                            <h4>Bez chemických reziduí</h4>
+                            <p>Klasické dezinfekce zanechávají chemická rezidua, která mohou dráždit pacienty s alergiemi nebo respiračními problémy. Ozon se rozpadá na kyslík.</p>
+                        </div>
+                    </div>
+
+                    <div class="why-item">
+                        <div class="why-icon">📋</div>
+                        <div>
+                            <h4>Dokumentovatelnost</h4>
+                            <p>Protokol každého zásahu poskytuje dokumentaci pro audit, pojišťovnu nebo kontrolní orgány. Máte důkaz o pravidelné sanitaci.</p>
+                        </div>
+                    </div>
+
+                    <div class="why-item">
+                        <div class="why-icon">⏰</div>
+                        <div>
+                            <h4>Mimo provoz</h4>
+                            <p>Sanitace probíhá po ordinační době nebo o víkendu. Nepřerušuje provoz a neohrožuje pacienty ani personál během procesu.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What's Included -->
+    <section class="section">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 3rem;">Co je součástí Clinic Standard</h2>
+
+            <div class="included-grid">
+                <div class="included-card">
+                    <div class="included-number">1</div>
+                    <div>
+                        <h4>Návrh harmonogramu</h4>
+                        <p>Posouzení typu pracoviště, velikosti, režimu provozu a návrh optimální frekvence sanitace.</p>
+                    </div>
+                </div>
+
+                <div class="included-card">
+                    <div class="included-number">2</div>
+                    <div>
+                        <h4>Plánování mimo provoz</h4>
+                        <p>Domluva termínů mimo ordinační dobu – typicky večer nebo o víkendu. Pevný harmonogram.</p>
+                    </div>
+                </div>
+
+                <div class="included-card">
+                    <div class="included-number">3</div>
+                    <div>
+                        <h4>Sanitace technologií OZON CLEANER</h4>
+                        <p>Profesionální zařízení určená pro plošnou dezinfekci zdravotnických zařízení.</p>
+                    </div>
+                </div>
+
+                <div class="included-card">
+                    <div class="included-number">4</div>
+                    <div>
+                        <h4>Protokol každého zásahu</h4>
+                        <p>Písemný záznam o provedené sanitaci včetně data, času, použitého zařízení a parametrů.</p>
+                    </div>
+                </div>
+
+                <div class="included-card">
+                    <div class="included-number">5</div>
+                    <div>
+                        <h4>Sanitace vybraných předmětů (volitelně)</h4>
+                        <p>Možnost ošetření nástrojů, oblečení nebo dalšího vybavení v ozonovém boxu.</p>
+                    </div>
+                </div>
+
+                <div class="included-card">
+                    <div class="included-number">6</div>
+                    <div>
+                        <h4>Fakturace dle smlouvy</h4>
+                        <p>Měsíční paušál nebo fakturace po zásahu. Možnost hrazení z provozních nákladů.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Compliance -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 1rem;">Certifikace a compliance</h2>
+
+            <div class="compliance-box">
+                <div class="compliance-items">
+                    <div class="compliance-item">
+                        <div class="compliance-icon">✓</div>
+                        <h4>Určeno pro zdravotnictví</h4>
+                        <p>Zařízení OZON CLEANER jsou certifikována pro použití ve zdravotnických zařízeních</p>
+                    </div>
+
+                    <div class="compliance-item">
+                        <div class="compliance-icon">📋</div>
+                        <h4>Protokol zásahu</h4>
+                        <p>Dokumentace každé sanitace pro audit, pojišťovnu nebo kontrolní orgány</p>
+                    </div>
+
+                    <div class="compliance-item">
+                        <div class="compliance-icon">🔒</div>
+                        <h4>Bezpečnostní postupy</h4>
+                        <p>Striktní dodržování bezpečnostních protokolů mimo přítomnost osob</p>
+                    </div>
+
+                    <div class="compliance-item">
+                        <div class="compliance-icon">♻️</div>
+                        <h4>Bez chemických stop</h4>
+                        <p>Žádná chemická rezidua – ozon se přirozeně rozpadá na kyslík</p>
+                    </div>
+
+                    <div class="compliance-item">
+                        <div class="compliance-icon">🎯</div>
+                        <h4>Opakovatelnost</h4>
+                        <p>Standardizovaný proces zajišťuje konzistentní kvalitu při každém zásahu</p>
+                    </div>
+
+                    <div class="compliance-item">
+                        <div class="compliance-icon">📊</div>
+                        <h4>Evidence pro kontroly</h4>
+                        <p>Archivace protokolů pro případné kontroly nebo audity</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="section">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 1rem;">Cenové možnosti</h2>
+            <p style="text-align: center; color: var(--text-gray); max-width: 700px; margin: 0 auto 3rem;">Vyberte si frekvenci, která odpovídá vašemu provozu a riziku kontaminace.</p>
+
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <div class="pricing-name">Jednorázově</div>
+                        <div class="pricing-subtitle">Dle potřeby</div>
+                    </div>
+                    <div class="pricing-body">
+                        <div class="pricing-price">od 12 900 Kč</div>
+                        <div class="pricing-interval">za zásah</div>
+                        
+                        <ul class="pricing-features">
+                            <li>Sanitace na vyžádání</li>
+                            <li>Malá ordinace / čekárna (50–120 m²)</li>
+                            <li>Mimo provoz</li>
+                            <li>Protokol zásahu</li>
+                            <li>Možnost opakování</li>
+                        </ul>
+
+                        <p style="color: var(--text-gray); font-size: 0.9rem; margin: 1rem 0;"><strong>Vhodné pro:</strong> Nepravidelná potřeba, příležitostná sanitace</p>
+
+                        <button class="pricing-cta" onclick="window.location.href='#form'">Objednat</button>
+                    </div>
+                </div>
+
+                <div class="pricing-card featured">
+                    <div class="pricing-header">
+                        <div class="pricing-name">Měsíčně</div>
+                        <div class="pricing-subtitle">1× měsíčně</div>
+                    </div>
+                    <div class="pricing-body">
+                        <div class="pricing-price">od 9 900 Kč/měs</div>
+                        <div class="pricing-interval">pevný paušál</div>
+                        
+                        <ul class="pricing-features">
+                            <li>Sanitace 1× měsíčně</li>
+                            <li>Pevný termín (flexibilně přesunutelný)</li>
+                            <li>Prioritní booking</li>
+                            <li>Protokol každého zásahu</li>
+                            <li>Archivace dokumentace</li>
+                            <li>Sleva 10 % při ročním předplatném</li>
+                        </ul>
+
+                        <p style="color: var(--text-gray); font-size: 0.9rem; margin: 1rem 0;"><strong>Vhodné pro:</strong> Standardní provoz, prevence</p>
+
+                        <button class="pricing-cta" onclick="window.location.href='#form'">Vybrat měsíční</button>
+                    </div>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <div class="pricing-name">Intenzivní</div>
+                        <div class="pricing-subtitle">2–4× měsíčně</div>
+                    </div>
+                    <div class="pricing-body">
+                        <div class="pricing-price">od 16 900 Kč/měs</div>
+                        <div class="pricing-interval">pevný paušál</div>
+                        
+                        <ul class="pricing-features">
+                            <li>Sanitace 2–4× měsíčně</li>
+                            <li>Nejvyšší priorita</li>
+                            <li>Individuální harmonogram</li>
+                            <li>Protokol + monitoring</li>
+                            <li>Sanitace boxem v ceně (1× měsíčně)</li>
+                            <li>Sleva 15 % při ročním předplatném</li>
+                        </ul>
+
+                        <p style="color: var(--text-gray); font-size: 0.9rem; margin: 1rem 0;"><strong>Vhodné pro:</strong> Intenzivní provoz, vysoké riziko</p>
+
+                        <button class="pricing-cta" onclick="window.location.href='#form'">Vybrat intenzivní</button>
+                    </div>
+                </div>
+            </div>
+
+            <p style="text-align: center; margin-top: 3rem; color: var(--text-gray);">
+                <strong>Poznámka:</strong> Ceny jsou orientační a závisí na velikosti prostoru a členitosti. Pro větší pracoviště (nad 200 m²) nabízíme individuální cenovou nabídku.
+            </p>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 3rem;">Jak probíhá spolupráce</h2>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-number">1</div>
+                    <div class="timeline-content">
+                        <h3>Konzultace a návrh</h3>
+                        <p>Konzultace o typu pracoviště, velikosti, režimu provozu. Návrh frekvence sanitace a harmonogramu mimo provoz.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-number">2</div>
+                    <div class="timeline-content">
+                        <h3>Cenová nabídka a smlouva</h3>
+                        <p>Připravíme cenovou nabídku a smlouvu o pravidelné sanitaci (nebo rámcovou smlouvu pro jednorázové zásahy).</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-number">3</div>
+                    <div class="timeline-content">
+                        <h3>První sanitace a instruktáž</h3>
+                        <p>První zásah probíhá s důkladným vysvětlením procesu a bezpečnostních postupů. Nastavíme harmonogram pravidelných návštěv.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-number">4</div>
+                    <div class="timeline-content">
+                        <h3>Pravidelná sanitace</h3>
+                        <p>Sanitace probíhají dle harmonogramu mimo provoz. Po každém zásahu obdržíte protokol s detaily provedené sanitace.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-number">5</div>
+                    <div class="timeline-content">
+                        <h3>Fakturace a dokumentace</h3>
+                        <p>Měsíční fakturace (při paušálu) nebo fakturace po zásahu. Archivace protokolů pro případné audity.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies -->
+    <section class="section">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 3rem;">Zkušenosti zdravotnických zařízení</h2>
+
+            <div class="case-studies">
+                <div class="case-card">
+                    <span class="case-type">Ordinace praktického lékaře</span>
+                    <h3>MUDr. Novotná, Praha 6</h3>
+                    
+                    <div class="case-stats">
+                        <div class="case-stat">
+                            <span class="case-stat-number">1×</span>
+                            <span class="case-stat-label">měsíčně</span>
+                        </div>
+                        <div class="case-stat">
+                            <span class="case-stat-number">12 měsíců</span>
+                            <span class="case-stat-label">trvání</span>
+                        </div>
+                    </div>
+
+                    <p class="case-result">"Od té doby, co sanitizujeme ordinaci pravidelně, výrazně poklesla nemocnost mého personálu. Pacienti oceňují, že dbáme na hygienický standard nad rámec běžného úklidu."</p>
+                </div>
+
+                <div class="case-card">
+                    <span class="case-type">Stomatologická klinika</span>
+                    <h3>Dental Care Clinic, Brno</h3>
+                    
+                    <div class="case-stats">
+                        <div class="case-stat">
+                            <span class="case-stat-number">2×</span>
+                            <span class="case-stat-label">měsíčně</span>
+                        </div>
+                        <div class="case-stat">
+                            <span class="case-stat-number">4 ordinace</span>
+                            <span class="case-stat-label">celkem</span>
+                        </div>
+                    </div>
+
+                    <p class="case-result">"Máme 4 ordinace a čekárnu. Pravidelná sanitace je pro nás standard – zejména v období chřipkových epidemií. Protokoly máme v pořádku pro audit."</p>
+                </div>
+
+                <div class="case-card">
+                    <span class="case-type">Rehabilitační centrum</span>
+                    <h3>FyzioPlus, Plzeň</h3>
+                    
+                    <div class="case-stats">
+                        <div class="case-stat">
+                            <span class="case-stat-number">1×</span>
+                            <span class="case-stat-label">týdně</span>
+                        </div>
+                        <div class="case-stat">
+                            <span class="case-stat-number">300 m²</span>
+                            <span class="case-stat-label">plocha</span>
+                        </div>
+                    </div>
+
+                    <p class="case-result">"U nás se střídá velké množství klientů denně. Týdenní sanitace je pro nás optimální – máme jistotu, že prostředí je opravdu čisté a bezpečné."</p>
+                </div>
+
+                <div class="case-card">
+                    <span class="case-type">Dětská pediatrie</span>
+                    <h3>Pediatrická ordinace, Ostrava</h3>
+                    
+                    <div class="case-stats">
+                        <div class="case-stat">
+                            <span class="case-stat-number">2×</span>
+                            <span class="case-stat-label">měsíčně</span>
+                        </div>
+                        <div class="case-stat">
+                            <span class="case-stat-number">0</span>
+                            <span class="case-stat-label">chemie</span>
+                        </div>
+                    </div>
+
+                    <p class="case-result">"Děti jsou citlivé na chemii, proto jsme hledali řešení bez chemických látek. Ozon je pro nás ideální – žádné rezidua, žádné alergické reakce."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="cta-box" id="form">
+                <h2>Zpracujeme nabídku pro vaše zařízení</h2>
+                <p>Vyplňte formulář a my vám připravíme cenovou nabídku včetně návrhu harmonogramu.<br>První konzultace je zdarma a nezávazná.</p>
+                <a href="vitalspace-landing.html#form" class="btn-secondary">Vyplnit poptávku</a>
+                <p style="margin-top: 1.5rem; font-size: 0.95rem;">nebo volejte: <strong>+420 734 451 278</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div>
+                <h3>VitalSpace</h3>
+                <p style="color: var(--light-cyan); margin-top: 1rem;">
+                    Profesionální sanitace prostoru ozonem.
+                </p>
+            </div>
+            <div>
+                <h3>Programy</h3>
+                <ul>
+                    <li><a href="program-reset.html">Reset prostoru</a></li>
+                    <li><a href="program-prevent.html">Prevent program</a></li>
+                    <li><a href="program-clinic.html">Clinic Standard</a></li>
+                    <li><a href="program-pronajem.html">Pronájem</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Kontakt</h3>
+                <ul>
+                    <li>+420 734 451 278</li>
+                    <li>info@vitalspace.cz</li>
+                    <li>Plzeň & Praha</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 VitalSpace | <a href="#">Ochrana osobních údajů</a></p>
+        </div>
+    </footer>
+</body>
+</html>

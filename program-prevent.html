@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prevent Program | Pravidelná sanitace pro longevity | VitalSpace</title>
+    <meta name="description" content="Pravidelná ozonová sanitace jako servis zdravého prostředí. Longevity začíná doma. Měsíční paušál od 9 900 Kč.">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #0066FF;
+            --dark-blue: #001F3F;
+            --cyan: #00D4FF;
+            --light-cyan: #6FEFFF;
+            --white: #FFFFFF;
+            --light-gray: #F5F9FF;
+            --medium-gray: #E8F1FF;
+            --text-dark: #1A2332;
+            --text-gray: #4A5568;
+            --green: #00CC88;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
+        h2 { font-size: clamp(1.75rem, 4vw, 2.75rem); }
+        h3 { font-size: clamp(1.25rem, 3vw, 1.75rem); }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 100%);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 102, 255, 0.2);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--cyan);
+        }
+
+        .nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav a {
+            color: var(--light-cyan);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav a:hover {
+            color: var(--white);
+        }
+
+        .header-cta {
+            background: var(--cyan);
+            color: var(--dark-blue);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 50%, #00AA88 100%);
+            padding: 4rem 2rem 6rem;
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(0, 212, 255, 0.2) 0%, transparent 50%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .program-badge {
+            display: inline-block;
+            background: var(--green);
+            color: var(--white);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--light-cyan);
+            margin-bottom: 2rem;
+        }
+
+        .hero-price {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--cyan);
+            margin: 2rem 0 1rem;
+        }
+
+        .hero-price-note {
+            color: var(--light-cyan);
+            margin-bottom: 2rem;
+        }
+
+        .btn-primary {
+            background: var(--cyan);
+            color: var(--dark-blue);
+            padding: 1.25rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+            box-shadow: 0 4px 20px rgba(0, 212, 255, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 30px rgba(0, 212, 255, 0.6);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            padding: 4rem 2rem;
+        }
+
+        .section-alt {
+            background: var(--light-gray);
+        }
+
+        /* Longevity Philosophy */
+        .longevity-box {
+            background: linear-gradient(135deg, rgba(0, 204, 136, 0.1), rgba(0, 102, 255, 0.1));
+            border: 3px solid var(--green);
+            border-radius: 25px;
+            padding: 3rem;
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .longevity-box h3 {
+            color: var(--dark-blue);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .longevity-box p {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Benefits Grid */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .benefit-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 2px solid var(--medium-gray);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            border-color: var(--green);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0, 204, 136, 0.15);
+        }
+
+        .benefit-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .benefit-card h3 {
+            color: var(--dark-blue);
+            margin-bottom: 1rem;
+        }
+
+        .benefit-card p {
+            color: var(--text-gray);
+            line-height: 1.8;
+        }
+
+        /* Frequency Options */
+        .frequency-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .frequency-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 3px solid var(--medium-gray);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .frequency-card.popular {
+            border-color: var(--cyan);
+            transform: scale(1.05);
+        }
+
+        .frequency-card.popular::before {
+            content: 'NEJOBLÍBENĚJŠÍ';
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: var(--cyan);
+            color: var(--dark-blue);
+            padding: 0.3rem 3rem;
+            font-size: 0.75rem;
+            font-weight: 800;
+            transform: rotate(45deg);
+            letter-spacing: 1px;
+        }
+
+        .frequency-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0, 102, 255, 0.2);
+        }
+
+        .frequency-header {
+            background: linear-gradient(135deg, var(--dark-blue), var(--primary-blue));
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .frequency-card.popular .frequency-header {
+            background: linear-gradient(135deg, var(--primary-blue), var(--cyan));
+        }
+
+        .frequency-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .frequency-interval {
+            color: var(--light-cyan);
+            font-size: 0.95rem;
+        }
+
+        .frequency-body {
+            padding: 2rem;
+        }
+
+        .frequency-price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .frequency-price-note {
+            text-align: center;
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+        }
+
+        .frequency-features {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .frequency-features li {
+            padding: 0.75rem 0;
+            color: var(--text-gray);
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .frequency-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--green);
+            font-weight: bold;
+        }
+
+        .frequency-cta {
+            width: 100%;
+            padding: 1rem;
+            background: var(--primary-blue);
+            color: var(--white);
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .frequency-card.popular .frequency-cta {
+            background: var(--cyan);
+            color: var(--dark-blue);
+        }
+
+        /* Comparison */
+        .comparison-box {
+            background: var(--white);
+            border-radius: 25px;
+            padding: 3rem;
+            margin-top: 3rem;
+            border: 2px solid var(--medium-gray);
+        }
+
+        .comparison-table {
+            width: 100%;
+            margin-top: 2rem;
+            border-collapse: collapse;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 1.5rem;
+            text-align: left;
+            border-bottom: 1px solid var(--medium-gray);
+        }
+
+        .comparison-table th {
+            background: var(--light-gray);
+            font-weight: 700;
+            color: var(--dark-blue);
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .check-icon {
+            color: var(--green);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .cross-icon {
+            color: var(--text-gray);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border-left: 4px solid var(--cyan);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .testimonial-text {
+            color: var(--text-gray);
+            font-style: italic;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--dark-blue);
+        }
+
+        .testimonial-role {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        /* CTA Box */
+        .cta-box {
+            background: linear-gradient(135deg, var(--primary-blue), var(--cyan));
+            color: var(--white);
+            padding: 4rem 3rem;
+            border-radius: 25px;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .cta-box h2 {
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .cta-box p {
+            color: var(--light-cyan);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn-secondary {
+            background: var(--white);
+            color: var(--dark-blue);
+            padding: 1.25rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-blue);
+            color: var(--white);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer h3 {
+            color: var(--cyan);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer ul {
+            list-style: none;
+        }
+
+        .footer li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer a {
+            color: var(--light-cyan);
+            text-decoration: none;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--light-cyan);
+        }
+
+        @media (max-width: 768px) {
+            .benefits-grid,
+            .frequency-grid,
+            .testimonials {
+                grid-template-columns: 1fr;
+            }
+
+            .frequency-card.popular {
+                transform: scale(1);
+            }
+
+            .nav {
+                display: none;
+            }
+
+            .comparison-table {
+                font-size: 0.9rem;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="vitalspace-landing.html" class="logo">Vital<span>Space</span></a>
+            <nav class="nav">
+                <a href="vitalspace-landing.html#programs">Programy</a>
+                <a href="vitalspace-landing.html#how">Jak to funguje</a>
+                <a href="#form" class="header-cta">Poptávka</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="program-badge">Longevity režim</span>
+            <h1>Prevent Program</h1>
+            <p class="hero-subtitle">Pravidelná sanitace prostoru jako servis zdravého vnitřního prostředí. Longevity nezačíná u doplňků – začíná tam, kde dýcháte a regenerujete.</p>
+            <div class="hero-price">od 9 900 Kč/měs</div>
+            <p class="hero-price-note">Měsíční paušál • Variabilní četnost • Sleva při ročním předplatném</p>
+            <a href="#form" class="btn-primary">Chci Prevent program</a>
+        </div>
+    </section>
+
+    <!-- Longevity Philosophy -->
+    <section class="section">
+        <div class="container">
+            <h2 style="text-align: center;">Proč longevity začíná<br>kvalitou vnitřního prostředí</h2>
+            
+            <div class="longevity-box">
+                <h3>Kde trávíte 90 % svého času?</h3>
+                <p>Většinu života trávíme v interiérech – doma, v práci, v autě. Kvalita vnitřního vzduchu a čistota povrchů přímo ovlivňuje váš spánek, regeneraci, imunitní systém, hormonální rovnováhu a dlouhodobé zdraví. Prevence je levnější než léčba. A začíná prostředím, ve kterém žijete.</p>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <span class="benefit-icon">💤</span>
+                    <h3>Kvalitní spánek</h3>
+                    <p>Čistý vzduch bez alergenů, spor a bakterií zlepšuje hloubku spánku a regeneraci. Spánek je základ longevity.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <span class="benefit-icon">🧠</span>
+                    <h3>Mentální výkon</h3>
+                    <p>Kvalitní vnitřní prostředí znamená lepší koncentraci, méně brain fog, vyšší produktivitu a mentální jasnost.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <span class="benefit-icon">🛡️</span>
+                    <h3>Silná imunita</h3>
+                    <p>Snížená zátěž patogeny a toxiny znamená méně stresu pro imunitní systém a nižší riziko chronických onemocnění.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <span class="benefit-icon">🫁</span>
+                    <h3>Zdravé dýchání</h3>
+                    <p>Absence alergénů, plísní a VOC látek snižuje riziko astmatu, alergií a respiračních problémů.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <span class="benefit-icon">⚖️</span>
+                    <h3>Hormonální balance</h3>
+                    <p>Pravidelná eliminace toxinů a chemických látek pomáhá udržet zdravou hormonální rovnováhu.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <span class="benefit-icon">🎯</span>
+                    <h3>Prevence > Léčba</h3>
+                    <p>Pravidelná péče o prostředí je mnohem levnější než řešení zdravotních problémů, které z nekvalitního prostředí vznikají.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Frequency Options -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 1rem;">Vyberte si frekvenci sanitace</h2>
+            <p style="text-align: center; color: var(--text-gray); max-width: 700px; margin: 0 auto 3rem;">Čím častější sanitace, tím vyšší standardní kvalita prostředí. Všechny varianty zahrnují pevnou měsíční cenu.</p>
+
+            <div class="frequency-grid">
+                <div class="frequency-card">
+                    <div class="frequency-header">
+                        <div class="frequency-name">Standard</div>
+                        <div class="frequency-interval">1× měsíčně</div>
+                    </div>
+                    <div class="frequency-body">
+                        <div class="frequency-price">9 900 Kč</div>
+                        <div class="frequency-price-note">do 90 m²</div>
+                        
+                        <ul class="frequency-features">
+                            <li>Sanitace 1× měsíčně</li>
+                            <li>Pevný termín (flexibilně přesunutelný)</li>
+                            <li>Prioritní booking</li>
+                            <li>Doporučení pro udržení kvality</li>
+                            <li>Sleva 10 % při ročním předplatném</li>
+                        </ul>
+
+                        <p style="color: var(--text-gray); font-size: 0.9rem; margin: 1rem 0;"><strong>Vhodné pro:</strong> Preventivní péče, longevity režim</p>
+
+                        <button class="frequency-cta" onclick="window.location.href='#form'">Vybrat Standard</button>
+                    </div>
+                </div>
+
+                <div class="frequency-card popular">
+                    <div class="frequency-header">
+                        <div class="frequency-name">Premium</div>
+                        <div class="frequency-interval">2× měsíčně</div>
+                    </div>
+                    <div class="frequency-body">
+                        <div class="frequency-price">16 900 Kč</div>
+                        <div class="frequency-price-note">do 90 m²</div>
+                        
+                        <ul class="frequency-features">
+                            <li>Sanitace 2× měsíčně (každé 2 týdny)</li>
+                            <li>Pevné termíny (flexibilně přesunutelné)</li>
+                            <li>Nejvyšší priorita</li>
+                            <li>Monitoring kvality prostředí</li>
+                            <li>Sleva 15 % při ročním předplatném</li>
+                            <li>1× ročně sanitace boxem zdarma</li>
+                        </ul>
+
+                        <p style="color: var(--text-gray); font-size: 0.9rem; margin: 1rem 0;"><strong>Vhodné pro:</strong> Maximální longevity efekt, alergiky</p>
+
+                        <button class="frequency-cta" onclick="window.location.href='#form'">Vybrat Premium</button>
+                    </div>
+                </div>
+
+                <div class="frequency-card">
+                    <div class="frequency-header">
+                        <div class="frequency-name">Custom</div>
+                        <div class="frequency-interval">Na míru</div>
+                    </div>
+                    <div class="frequency-body">
+                        <div class="frequency-price">Individuálně</div>
+                        <div class="frequency-price-note">dle potřeb</div>
+                        
+                        <ul class="frequency-features">
+                            <li>Frekvence dle vašich potřeb</li>
+                            <li>Kombinace prostor (dům + auto)</li>
+                            <li>Sezónní režimy</li>
+                            <li>Roční smlouvy se slevou</li>
+                            <li>Bonusové sanitace</li>
+                            <li>Rozšíření o další prostory</li>
+                        </ul>
+
+                        <p style="color: var(--text-gray); font-size: 0.9rem; margin: 1rem 0;"><strong>Vhodné pro:</strong> Větší prostory, specifické potřeby</p>
+
+                        <button class="frequency-cta" onclick="window.location.href='#form'">Domluvit Custom</button>
+                    </div>
+                </div>
+            </div>
+
+            <p style="text-align: center; margin-top: 3rem; color: var(--text-gray); font-size: 0.95rem;">
+                <strong>Poznámka:</strong> Ceny platí pro prostory do 90 m². Pro větší prostory nabízíme individuální cenovou nabídku s výhodným přepočtem na m².
+            </p>
+        </div>
+    </section>
+
+    <!-- Comparison -->
+    <section class="section">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 1rem;">Prevent vs. Reset</h2>
+            <p style="text-align: center; color: var(--text-gray); max-width: 700px; margin: 0 auto;">Rozdíl mezi jednorázovou sanitací a pravidelným programem</p>
+
+            <div class="comparison-box">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Parametr</th>
+                            <th>Reset prostoru (jednorázově)</th>
+                            <th>Prevent program (pravidelně)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Účel</strong></td>
+                            <td>Řešení akutního problému</td>
+                            <td>Dlouhodobá prevence</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Frekvence</strong></td>
+                            <td>1× na vyžádání</td>
+                            <td>1–2× měsíčně pravidelně</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cena</strong></td>
+                            <td>2 900 – 7 900 Kč / zásah</td>
+                            <td>9 900 – 16 900 Kč / měsíc</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pevný termín</strong></td>
+                            <td><span class="cross-icon">✗</span></td>
+                            <td><span class="check-icon">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Prioritní booking</strong></td>
+                            <td><span class="cross-icon">✗</span></td>
+                            <td><span class="check-icon">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Monitoring kvality</strong></td>
+                            <td><span class="cross-icon">✗</span></td>
+                            <td><span class="check-icon">✓</span> (Premium)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sleva při ročním předplatném</strong></td>
+                            <td><span class="cross-icon">✗</span></td>
+                            <td><span class="check-icon">✓</span> 10–15 %</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Longevity efekt</strong></td>
+                            <td>Krátkodobý</td>
+                            <td>Dlouhodobý, kumulativní</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Vhodné pro</strong></td>
+                            <td>Po nájemnících, urgentní problémy</td>
+                            <td>Zdravý životní styl, prevence</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 3rem;">Co říkají klienti s Prevent programem</h2>
+
+            <div class="testimonials">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Od té doby, co mám Prevent program, spím mnohem lépe a cítím se ráno odpočatější. Žádné rýmy každý měsíc jako dřív. Za mě jasný longevity nástroj."</p>
+                    <div class="testimonial-author">Martin K.</div>
+                    <div class="testimonial-role">Prevent Standard, 2+kk, Praha</div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Mám alergie na roztoče a každé jaro bylo peklo. Od pravidelné sanitace jsem konečně normálně dýchala. Stojí to za to."</p>
+                    <div class="testimonial-author">Jana P.</div>
+                    <div class="testimonial-role">Prevent Premium, 3+1, Brno</div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Jako správce bytů jsem skeptický na všechny novinky. Ale tohle funguje – byty se mi vrací čistší, bez pachu, nájemníci spokojení. Mám to jako standard."</p>
+                    <div class="testimonial-author">Petr H.</div>
+                    <div class="testimonial-role">Prevent Custom, 12 bytů, Plzeň</div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Investuji hodně do zdraví – suplementy, sport, kvalitní jídlo. Pravidelná sanitace prostoru je logické doplnění. Levnější než měsíční dávka kvalitních suplementů a větší efekt."</p>
+                    <div class="testimonial-author">Tomáš V.</div>
+                    <div class="testimonial-role">Prevent Premium, RD 180 m², Praha-východ</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section">
+        <div class="container">
+            <div class="cta-box" id="form">
+                <h2>Začněte s Prevent programem</h2>
+                <p>Vyplňte formulář a domluvíme první sanitaci + nastavíme pravidelný režim.<br>Můžete kdykoliv zrušit nebo změnit frekvenci.</p>
+                <a href="vitalspace-landing.html#form" class="btn-secondary">Vyplnit poptávku</a>
+                <p style="margin-top: 1.5rem; font-size: 0.95rem;">nebo volejte: <strong>+420 734 451 278</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div>
+                <h3>VitalSpace</h3>
+                <p style="color: var(--light-cyan); margin-top: 1rem;">
+                    Profesionální sanitace prostoru ozonem.
+                </p>
+            </div>
+            <div>
+                <h3>Programy</h3>
+                <ul>
+                    <li><a href="program-reset.html">Reset prostoru</a></li>
+                    <li><a href="program-prevent.html">Prevent program</a></li>
+                    <li><a href="program-clinic.html">Clinic Standard</a></li>
+                    <li><a href="program-pronajem.html">Pronájem</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Kontakt</h3>
+                <ul>
+                    <li>+420 734 451 278</li>
+                    <li>info@vitalspace.cz</li>
+                    <li>Plzeň & Praha</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 VitalSpace | <a href="#">Ochrana osobních údajů</a></p>
+        </div>
+    </footer>
+</body>
+</html>

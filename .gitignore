@@ -1,3 +1,6 @@
+# Private files (not for public)
+private/
+
 # Dependencies
 node_modules/
 

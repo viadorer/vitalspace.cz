@@ -10,7 +10,10 @@ VitalSpace/
 ├── pages/                  # Podstránky programů
 │   ├── reset.html          # Reset prostoru - jednorázová sanitace
 │   ├── prevent.html        # Prevent program - pravidelná sanitace
-│   └── clinic.html         # Clinic Standard - pro zdravotnictví
+│   ├── clinic.html         # Clinic Standard - pro zdravotnictví
+│   └── rental.html         # Pronájem zařízení
+├── private/                # Interní dokumenty (není na GitHubu)
+│   └── protokol-vzor.html  # Vzorový protokol sanitace
 ├── css/
 │   └── styles.css          # Všechny styly (včetně podstránek)
 ├── js/

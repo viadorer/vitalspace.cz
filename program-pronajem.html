@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pronájem ozonového zařízení | Se zaškolením | VitalSpace</title>
+    <meta name="description" content="Pronájem ozonového zařízení OZON CLEANER se zaškolením a bezpečnostním protokolem. Od 1 490 Kč/den. Pro vlastní aplikaci.">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #0066FF;
+            --dark-blue: #001F3F;
+            --cyan: #00D4FF;
+            --light-cyan: #6FEFFF;
+            --white: #FFFFFF;
+            --light-gray: #F5F9FF;
+            --medium-gray: #E8F1FF;
+            --text-dark: #1A2332;
+            --text-gray: #4A5568;
+            --orange: #FF8C00;
+            --yellow: #FFD700;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
+        h2 { font-size: clamp(1.75rem, 4vw, 2.75rem); }
+        h3 { font-size: clamp(1.25rem, 3vw, 1.75rem); }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 100%);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 102, 255, 0.2);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--cyan);
+        }
+
+        .nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav a {
+            color: var(--light-cyan);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav a:hover {
+            color: var(--white);
+        }
+
+        .header-cta {
+            background: var(--cyan);
+            color: var(--dark-blue);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 50%, var(--orange) 100%);
+            padding: 4rem 2rem 6rem;
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '📦';
+            position: absolute;
+            font-size: 25rem;
+            opacity: 0.05;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .program-badge {
+            display: inline-block;
+            background: var(--orange);
+            color: var(--white);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--light-cyan);
+            margin-bottom: 2rem;
+        }
+
+        .hero-price {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--yellow);
+            margin: 2rem 0 1rem;
+        }
+
+        .hero-price-note {
+            color: var(--light-cyan);
+            margin-bottom: 2rem;
+        }
+
+        .btn-primary {
+            background: var(--yellow);
+            color: var(--dark-blue);
+            padding: 1.25rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+            box-shadow: 0 4px 20px rgba(255, 215, 0, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 30px rgba(255, 215, 0, 0.6);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            padding: 4rem 2rem;
+        }
+
+        .section-alt {
+            background: var(--light-gray);
+        }
+
+        /* Benefits */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .benefit-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 2px solid var(--medium-gray);
+            display: flex;
+            gap: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            border-color: var(--orange);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(255, 140, 0, 0.15);
+        }
+
+        .benefit-icon {
+            font-size: 3rem;
+            flex-shrink: 0;
+        }
+
+        .benefit-card h3 {
+            color: var(--dark-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .benefit-card p {
+            color: var(--text-gray);
+            line-height: 1.7;
+        }
+
+        /* Equipment Cards */
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .equipment-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 3px solid var(--medium-gray);
+            transition: all 0.3s ease;
+        }
+
+        .equipment-card:hover {
+            border-color: var(--orange);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(255, 140, 0, 0.2);
+        }
+
+        .equipment-image {
+            height: 180px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--cyan));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+        }
+
+        .equipment-body {
+            padding: 2rem;
+        }
+
+        .equipment-name {
+            font-size: 1.5rem;
+            color: var(--dark-blue);
+            margin-bottom: 1rem;
+        }
+
+        .equipment-specs {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .equipment-specs li {
+            padding: 0.5rem 0;
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            border-bottom: 1px solid var(--medium-gray);
+        }
+
+        .equipment-specs li:last-child {
+            border-bottom: none;
+        }
+
+        .equipment-specs strong {
+            color: var(--dark-blue);
+        }
+
+        .equipment-price {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--orange);
+            text-align: center;
+            margin: 1.5rem 0;
+        }
+
+        .equipment-price-note {
+            text-align: center;
+            color: var(--text-gray);
+            font-size: 0.85rem;
+        }
+
+        /* What's Included */
+        .included-box {
+            background: var(--white);
+            border-radius: 25px;
+            padding: 3rem;
+            margin-top: 3rem;
+            border: 3px solid var(--orange);
+        }
+
+        .included-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .included-item {
+            display: flex;
+            gap: 1rem;
+            align-items: start;
+        }
+
+        .included-check {
+            font-size: 1.5rem;
+            color: var(--orange);
+            flex-shrink: 0;
+        }
+
+        .included-item h4 {
+            color: var(--dark-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .included-item p {
+            color: var(--text-gray);
+            line-height: 1.7;
+        }
+
+        /* Safety Warning */
+        .safety-warning {
+            background: linear-gradient(135deg, rgba(255, 51, 51, 0.1), rgba(255, 140, 0, 0.1));
+            border: 3px solid #FF3333;
+            border-radius: 25px;
+            padding: 3rem;
+            margin-top: 3rem;
+        }
+
+        .warning-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .warning-icon {
+            font-size: 3rem;
+        }
+
+        .warning-header h3 {
+            color: #CC0000;
+            margin: 0;
+        }
+
+        .warning-rules {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .warning-rule {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border-left: 4px solid #FF3333;
+        }
+
+        .warning-rule h4 {
+            color: #CC0000;
+            margin-bottom: 0.5rem;
+        }
+
+        .warning-rule p {
+            color: var(--text-gray);
+            line-height: 1.7;
+        }
+
+        /* Pricing Table */
+        .pricing-table {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            margin-top: 3rem;
+            box-shadow: 0 10px 40px rgba(0, 102, 255, 0.1);
+        }
+
+        .pricing-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            border-bottom: 1px solid var(--medium-gray);
+        }
+
+        .pricing-row:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-row.header {
+            background: linear-gradient(135deg, var(--dark-blue), var(--primary-blue));
+            color: var(--white);
+        }
+
+        .pricing-cell {
+            padding: 1.5rem;
+        }
+
+        .pricing-row.header .pricing-cell {
+            font-weight: 700;
+        }
+
+        .pricing-highlight {
+            background: var(--light-gray);
+        }
+
+        .pricing-cell strong {
+            color: var(--orange);
+            font-size: 1.1rem;
+        }
+
+        /* Process Steps */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .process-step::after {
+            content: '→';
+            position: absolute;
+            right: -1.5rem;
+            top: 30px;
+            font-size: 2rem;
+            color: var(--cyan);
+        }
+
+        .process-step:last-child::after {
+            display: none;
+        }
+
+        .process-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--orange), var(--yellow));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--white);
+            margin: 0 auto 1rem;
+        }
+
+        .process-step h4 {
+            color: var(--dark-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .process-step p {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        /* Who Is It For */
+        .who-for-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .who-for-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 2px solid var(--medium-gray);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .who-for-card:hover {
+            border-color: var(--orange);
+            transform: translateY(-5px);
+        }
+
+        .who-for-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .who-for-card h3 {
+            color: var(--dark-blue);
+            margin-bottom: 1rem;
+        }
+
+        .who-for-card p {
+            color: var(--text-gray);
+            line-height: 1.7;
+        }
+
+        /* Comparison Box */
+        .comparison-box {
+            background: var(--white);
+            border-radius: 25px;
+            padding: 3rem;
+            margin-top: 3rem;
+            border: 2px solid var(--medium-gray);
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .comparison-side {
+            padding: 2rem;
+            border-radius: 15px;
+        }
+
+        .comparison-side.rental {
+            background: linear-gradient(135deg, rgba(255, 140, 0, 0.1), rgba(255, 215, 0, 0.1));
+            border: 2px solid var(--orange);
+        }
+
+        .comparison-side.service {
+            background: linear-gradient(135deg, rgba(0, 102, 255, 0.1), rgba(0, 212, 255, 0.1));
+            border: 2px solid var(--cyan);
+        }
+
+        .comparison-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .comparison-side.rental .comparison-title {
+            color: var(--orange);
+        }
+
+        .comparison-side.service .comparison-title {
+            color: var(--primary-blue);
+        }
+
+        .comparison-list {
+            list-style: none;
+        }
+
+        .comparison-list li {
+            padding: 0.75rem 0;
+            color: var(--text-gray);
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .comparison-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .comparison-side.rental .comparison-list li::before {
+            color: var(--orange);
+        }
+
+        .comparison-side.service .comparison-list li::before {
+            color: var(--cyan);
+        }
+
+        /* CTA Box */
+        .cta-box {
+            background: linear-gradient(135deg, var(--orange), var(--yellow));
+            color: var(--white);
+            padding: 4rem 3rem;
+            border-radius: 25px;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .cta-box h2 {
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .cta-box p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn-secondary {
+            background: var(--white);
+            color: var(--dark-blue);
+            padding: 1.25rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-blue);
+            color: var(--white);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer h3 {
+            color: var(--cyan);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer ul {
+            list-style: none;
+        }
+
+        .footer li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer a {
+            color: var(--light-cyan);
+            text-decoration: none;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--light-cyan);
+        }
+
+        @media (max-width: 768px) {
+            .benefits-grid,
+            .equipment-grid,
+            .included-grid,
+            .who-for-grid,
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process-step::after {
+                display: none;
+            }
+
+            .pricing-row {
+                grid-template-columns: 1fr;
+            }
+
+            .nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="vitalspace-landing.html" class="logo">Vital<span>Space</span></a>
+            <nav class="nav">
+                <a href="vitalspace-landing.html#programs">Programy</a>
+                <a href="vitalspace-landing.html#how">Jak to funguje</a>
+                <a href="#form" class="header-cta">Poptávka</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="program-badge">Pro vlastní aplikaci</span>
+            <h1>Pronájem ozonového zařízení</h1>
+            <p class="hero-subtitle">Pronajměte si profesionální zařízení OZON CLEANER se zaškolením a bezpečnostním protokolem. Ideální pro školy o prázdninách, jednorázové akce nebo vlastní sanitaci.</p>
+            <div class="hero-price">od 1 490 Kč/den</div>
+            <p class="hero-price-note">Víkend od 2 490 Kč • Týden od 6 900 Kč • Kauce 10 000-30 000 Kč</p>
+            <a href="#form" class="btn-primary">Rezervovat zařízení</a>
+        </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="section">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 1rem;">Proč si pronajmout zařízení</h2>
+            <p style="text-align: center; color: var(--text-gray); max-width: 700px; margin: 0 auto 3rem;">Máte kontrolu nad procesem, šetříte náklady a můžete sanitizovat kdykoli potřebujete.</p>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">💰</div>
+                    <div>
+                        <h3>Úspora nákladů</h3>
+                        <p>Při opakovaných sanitacích je pronájem levnější než objednávat servis. Ideální pro větší plochy nebo více prostor najednou.</p>
+                    </div>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">⏰</div>
+                    <div>
+                        <h3>Vlastní časování</h3>
+                        <p>Sanitizujete, kdy se vám to hodí – večer, o víkendu, o prázdninách. Žádné čekání na volný termín technika.</p>
+                    </div>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎓</div>
+                    <div>
+                        <h3>Zaškolení v ceně</h3>
+                        <p>Naučíme vás bezpečně používat zařízení a poskytneme písemný protokol. Po zaškolení zvládnete sanitaci sami.</p>
+                    </div>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">🔄</div>
+                    <div>
+                        <h3>Opakované použití</h3>
+                        <p>Můžete sanitizovat více prostor během jednoho pronájmu – školu po třídách, bytový dům po patrech atd.</p>
+                    </div>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">📱</div>
+                    <div>
+                        <h3>Technická podpora</h3>
+                        <p>Během pronájmu máte k dispozici telefonickou podporu. Pomůžeme s jakýmkoli dotazem nebo problémem.</p>
+                    </div>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">📄</div>
+                    <div>
+                        <h3>Bezpečnostní protokol</h3>
+                        <p>Dostanete písemný protokol s postupem, bezpečnostními pravidly a časy. Vše jasně zdokumentované.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Equipment -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 3rem;">Zařízení k pronájmu</h2>
+
+            <div class="equipment-grid">
+                <div class="equipment-card">
+                    <div class="equipment-image">⚡</div>
+                    <div class="equipment-body">
+                        <h3 class="equipment-name">OZON CLEANER PRO I PLUS</h3>
+                        <p style="color: var(--text-gray); margin-bottom: 1rem;">Mobilní zařízení pro větší prostory</p>
+                        
+                        <ul class="equipment-specs">
+                            <li><strong>Kapacita:</strong> 40 g/h ozonu</li>
+                            <li><strong>Příkon:</strong> 550 W</li>
+                            <li><strong>Pokrytí:</strong> 200-800 m³</li>
+                            <li><strong>Vhodné pro:</strong> Školy, kanceláře, velké byty</li>
+                        </ul>
+
+                        <div class="equipment-price">3 490 Kč</div>
+                        <div class="equipment-price-note">za 24 hodin</div>
+                    </div>
+                </div>
+
+                <div class="equipment-card">
+                    <div class="equipment-image">🔲</div>
+                    <div class="equipment-body">
+                        <h3 class="equipment-name">OZON CLEANER Standard</h3>
+                        <p style="color: var(--text-gray); margin-bottom: 1rem;">Kompaktní zařízení pro menší prostory</p>
+                        
+                        <ul class="equipment-specs">
+                            <li><strong>Kapacita:</strong> 20 g/h ozonu</li>
+                            <li><strong>Příkon:</strong> 300 W</li>
+                            <li><strong>Pokrytí:</strong> 100-400 m³</li>
+                            <li><strong>Vhodné pro:</strong> Byty, menší kanceláře</li>
+                        </ul>
+
+                        <div class="equipment-price">1 490 Kč</div>
+                        <div class="equipment-price-note">za 24 hodin</div>
+                    </div>
+                </div>
+
+                <div class="equipment-card">
+                    <div class="equipment-image">📦</div>
+                    <div class="equipment-body">
+                        <h3 class="equipment-name">OZON CLEAN BOX</h3>
+                        <p style="color: var(--text-gray); margin-bottom: 1rem;">Box pro sanitaci předmětů</p>
+                        
+                        <ul class="equipment-specs">
+                            <li><strong>Kapacita:</strong> 10 g/h ozonu</li>
+                            <li><strong>Příkon:</strong> 150 W</li>
+                            <li><strong>Použití:</strong> Nástroje, oblečení, obuv</li>
+                            <li><strong>Vhodné pro:</strong> Doplněk k prostorové sanitaci</li>
+                        </ul>
+
+                        <div class="equipment-price">990 Kč</div>
+                        <div class="equipment-price-note">za 24 hodin</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What's Included -->
+    <section class="section">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 1rem;">Co je součástí pronájmu</h2>
+
+            <div class="included-box">
+                <div class="included-grid">
+                    <div class="included-item">
+                        <div class="included-check">✓</div>
+                        <div>
+                            <h4>Osobní zaškolení (45 min)</h4>
+                            <p>Praktické zaškolení v používání zařízení, vysvětlení procesu a bezpečnostních pravidel.</p>
+                        </div>
+                    </div>
+
+                    <div class="included-item">
+                        <div class="included-check">✓</div>
+                        <div>
+                            <h4>Písemný bezpečnostní protokol</h4>
+                            <p>Detailní postup krok za krokem včetně časů, bezpečnostních pravidel a kontrolního checklistu.</p>
+                        </div>
+                    </div>
+
+                    <div class="included-item">
+                        <div class="included-check">✓</div>
+                        <div>
+                            <h4>Technická podpora po telefonu</h4>
+                            <p>Během celé doby pronájmu máte k dispozici technickou podporu pro případné dotazy.</p>
+                        </div>
+                    </div>
+
+                    <div class="included-item">
+                        <div class="included-check">✓</div>
+                        <div>
+                            <h4>Pojištění zařízení</h4>
+                            <p>Zařízení je pojištěno proti poškození. Kauce pokrývá běžné opotřebení a ztrátu.</p>
+                        </div>
+                    </div>
+
+                    <div class="included-item">
+                        <div class="included-check">✓</div>
+                        <div>
+                            <h4>Prodloužený kabel a timer</h4>
+                            <p>V balíčku je prodlužovací kabel a timer pro automatické vypnutí po stanovené době.</p>
+                        </div>
+                    </div>
+
+                    <div class="included-item">
+                        <div class="included-check">✓</div>
+                        <div>
+                            <h4>Doprava v Plzni/Praze</h4>
+                            <p>Dovezeme a odvezeme zařízení v rámci Plzně a Prahy. Mimo město +500 Kč za dojezd.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Safety Warning -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="safety-warning">
+                <div class="warning-header">
+                    <div class="warning-icon">⚠️</div>
+                    <h3>KRITICKÁ BEZPEČNOSTNÍ PRAVIDLA</h3>
+                </div>
+
+                <p style="color: var(--text-gray); margin-bottom: 2rem; font-size: 1.1rem;">
+                    Ozonová sanitace je bezpečná pouze při správném použití. Porušení těchto pravidel může způsobit vážné zdravotní problémy. Před pronájmem se seznámíte s úplným bezpečnostním protokolem.
+                </p>
+
+                <div class="warning-rules">
+                    <div class="warning-rule">
+                        <h4>1. Absolutní zákaz přítomnosti</h4>
+                        <p>V prostoru nesmí být během sanitace a následného rozpadu ozonu NIKDO – žádné osoby, zvířata ani rostliny. Toto pravidlo je nezpochybnitelné.</p>
+                    </div>
+
+                    <div class="warning-rule">
+                        <h4>2. Povinná čekací doba</h4>
+                        <p>Po vypnutí zařízení musíte vyčkat minimálně 100 minut na přirozený rozpad ozonu. Teprve poté můžete prostor odvětrat a vstoupit.</p>
+                    </div>
+
+                    <div class="warning-rule">
+                        <h4>3. Uzavření prostoru</h4>
+                        <p>Prostor musí být během sanitace hermeticky uzavřený. Ozon nesmí unikat do jiných místností nebo ven. Okna a dveře zavřené, ventilace vypnutá.</p>
+                    </div>
+
+                    <div class="warning-rule">
+                        <h4>4. Ochrana citlivých materiálů</h4>
+                        <p>Některé plasty, guma a kovy mohou být poškozeny ozonem. Citlivé předměty zakryjte nebo odstraňte. Pokyny dostanete při zaškolení.</p>
+                    </div>
+
+                    <div class="warning-rule">
+                        <h4>5. Návrat do prostoru</h4>
+                        <p>Do prostoru můžete vstoupit až po 100minutové čekací době + odvětrání min. 30 minut. Nikdy nevstupujte dříve, i kdyby "nic necítil".</p>
+                    </div>
+
+                    <div class="warning-rule">
+                        <h4>6. Odpovědnost</h4>
+                        <p>Nájemce plně odpovídá za dodržení bezpečnostních pravidel. Porušení protokolu je porušením smlouvy a může vést k penalizaci.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="section">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 1rem;">Ceník pronájmu</h2>
+            <p style="text-align: center; color: var(--text-gray); max-width: 700px; margin: 0 auto 3rem;">Všechny ceny zahrnují zaškolení, protokol, pojištění a dopravu v Plzni/Praze.</p>
+
+            <div class="pricing-table">
+                <div class="pricing-row header">
+                    <div class="pricing-cell">Délka pronájmu</div>
+                    <div class="pricing-cell">PRO I PLUS</div>
+                    <div class="pricing-cell">Standard</div>
+                    <div class="pricing-cell">BOX</div>
+                </div>
+                <div class="pricing-row">
+                    <div class="pricing-cell"><strong>24 hodin</strong></div>
+                    <div class="pricing-cell"><strong>3 490 Kč</strong></div>
+                    <div class="pricing-cell"><strong>1 490 Kč</strong></div>
+                    <div class="pricing-cell"><strong>990 Kč</strong></div>
+                </div>
+                <div class="pricing-row pricing-highlight">
+                    <div class="pricing-cell"><strong>Víkend (Pá–Ne)</strong></div>
+                    <div class="pricing-cell"><strong>5 990 Kč</strong></div>
+                    <div class="pricing-cell"><strong>2 490 Kč</strong></div>
+                    <div class="pricing-cell"><strong>1 490 Kč</strong></div>
+                </div>
+                <div class="pricing-row">
+                    <div class="pricing-cell"><strong>Týden (7 dní)</strong></div>
+                    <div class="pricing-cell"><strong>14 900 Kč</strong></div>
+                    <div class="pricing-cell"><strong>6 900 Kč</strong></div>
+                    <div class="pricing-cell"><strong>3 490 Kč</strong></div>
+                </div>
+                <div class="pricing-row pricing-highlight">
+                    <div class="pricing-cell"><strong>Kauce (vratná)</strong></div>
+                    <div class="pricing-cell"><strong>30 000 Kč</strong></div>
+                    <div class="pricing-cell"><strong>20 000 Kč</strong></div>
+                    <div class="pricing-cell"><strong>10 000 Kč</strong></div>
+                </div>
+                <div class="pricing-row">
+                    <div class="pricing-cell"><strong>Zaškolení</strong></div>
+                    <div class="pricing-cell" colspan="3" style="text-align: center;">Zdarma v ceně pronájmu</div>
+                </div>
+            </div>
+
+            <p style="text-align: center; margin-top: 2rem; color: var(--text-gray);">
+                <strong>Poznámka:</strong> Doprava mimo Plzeň/Praha: +500 Kč za dojezd. Opožděné vrácení: +20 % z denní sazby za každou započatou hodinu.
+            </p>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 3rem;">Jak pronájem probíhá</h2>
+
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="process-number">1</div>
+                    <h4>Rezervace</h4>
+                    <p>Vyplníte formulář nebo zavoláte. Domluvíme termín a zařízení.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="process-number">2</div>
+                    <h4>Předání</h4>
+                    <p>Dovezeme zařízení a provedeme zaškolení (45 min).</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="process-number">3</div>
+                    <h4>Použití</h4>
+                    <p>Sanitizujete dle protokolu, telefonická podpora je k dispozici.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="process-number">4</div>
+                    <div>
+                        <h4>Vrácení</h4>
+                        <p>Odvezeme zařízení a vrátíme kauci.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who Is It For -->
+    <section class="section">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 3rem;">Pro koho je pronájem vhodný</h2>
+
+            <div class="who-for-grid">
+                <div class="who-for-card">
+                    <div class="who-for-icon">🏫</div>
+                    <h3>Školy o prázdninách</h3>
+                    <p>Sanitizujte třídy postupně během prázdnin. Úspora nákladů oproti objednání servisu pro každou třídu.</p>
+                </div>
+
+                <div class="who-for-card">
+                    <div class="who-for-icon">🏢</div>
+                    <h3>Správci nemovitostí</h3>
+                    <p>Sanitizace více bytů po sobě. Flexibilní časování a nižší náklady při větším počtu jednotek.</p>
+                </div>
+
+                <div class="who-for-card">
+                    <div class="who-for-icon">🏘️</div>
+                    <div>
+                        <h3>Bytové domy / SVJ</h3>
+                        <p>Sanitace společných prostor vlastními silami. Kontrola nad procesem a časováním.</p>
+                    </div>
+                </div>
+
+                <div class="who-for-card">
+                    <div class="who-for-icon">🚗</div>
+                    <h3>Autopůjčovny</h3>
+                    <p>Sanitace vozového parku mezi zákazníky. Rychlé ošetření bez čekání na externího dodavatele.</p>
+                </div>
+
+                <div class="who-for-card">
+                    <div class="who-for-icon">🏨</div>
+                    <h3>Malé penziony</h3>
+                    <p>Hloubková sanitace pokojů mimo sezónu nebo při generálním úklidu. Úspora nákladů.</p>
+                </div>
+
+                <div class="who-for-card">
+                    <div class="who-for-icon">🛠️</div>
+                    <h3>Technicky zdatní</h3>
+                    <p>Máte chuť naučit se novou věc a ušetřit. Po zaškolení zvládnete sanitaci sami.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 1rem;">Pronájem vs. Objednání servisu</h2>
+            <p style="text-align: center; color: var(--text-gray); max-width: 700px; margin: 0 auto;">Kdy se vyplatí pronájem a kdy je lepší objednat servis?</p>
+
+            <div class="comparison-box">
+                <div class="comparison-grid">
+                    <div class="comparison-side rental">
+                        <h3 class="comparison-title">Pronájem zařízení</h3>
+                        <ul class="comparison-list">
+                            <li>Nižší náklady při více prostorech</li>
+                            <li>Vlastní časování (večer, víkend, prázdniny)</li>
+                            <li>Možnost opakovaného použití</li>
+                            <li>Kontrola nad procesem</li>
+                            <li>Vyžaduje čas na zaškolení</li>
+                            <li>Odpovědnost za bezpečnost</li>
+                            <li>Nutnost dodržet protokol</li>
+                        </ul>
+                        <p style="margin-top: 1.5rem; color: var(--text-gray);"><strong>Vhodné pro:</strong> Školy o prázdninách, správce bytů, autopůjčovny, více prostor najednou</p>
+                    </div>
+
+                    <div class="comparison-side service">
+                        <h3 class="comparison-title">Objednání servisu</h3>
+                        <ul class="comparison-list">
+                            <li>Žádná odpovědnost za provedení</li>
+                            <li>Profesionální technik vše zařídí</li>
+                            <li>Protokol zásahu automaticky</li>
+                            <li>Pojištění a garance</li>
+                            <li>Vyšší náklady při opakování</li>
+                            <li>Závislost na volném termínu</li>
+                            <li>Čekání na technika</li>
+                        </ul>
+                        <p style="margin-top: 1.5rem; color: var(--text-gray);"><strong>Vhodné pro:</strong> Jednorázové sanitace, zdravotnictví, kanceláře, když chcete klid</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section">
+        <div class="container">
+            <div class="cta-box" id="form">
+                <h2>Rezervujte si zařízení</h2>
+                <p>Vyplňte formulář a domluvíme termín předání, zaškolení a vrácení.<br>Máte dotazy? Rádi vám vše vysvětlíme.</p>
+                <a href="vitalspace-landing.html#form" class="btn-secondary">Vyplnit rezervaci</a>
+                <p style="margin-top: 1.5rem; font-size: 0.95rem; color: rgba(255, 255, 255, 0.9);">nebo volejte: <strong>+420 734 451 278</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div>
+                <h3>VitalSpace</h3>
+                <p style="color: var(--light-cyan); margin-top: 1rem;">
+                    Profesionální sanitace prostoru ozonem.
+                </p>
+            </div>
+            <div>
+                <h3>Programy</h3>
+                <ul>
+                    <li><a href="program-reset.html">Reset prostoru</a></li>
+                    <li><a href="program-prevent.html">Prevent program</a></li>
+                    <li><a href="program-clinic.html">Clinic Standard</a></li>
+                    <li><a href="program-pronajem.html">Pronájem</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Kontakt</h3>
+                <ul>
+                    <li>+420 734 451 278</li>
+                    <li>info@vitalspace.cz</li>
+                    <li>Plzeň & Praha</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 VitalSpace | <a href="#">Ochrana osobních údajů</a></p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -2153,3 +2153,437 @@ h4 { font-size: clamp(1.1rem, 2.5vw, 1.4rem); }
     flex: 1;
     margin-top: 1rem;
 }
+
+/* ==========================================================================
+   Rental Page - Additional Variables
+   ========================================================================== */
+:root {
+    --orange: #FF8C00;
+    --yellow: #FFD700;
+}
+
+/* ==========================================================================
+   Rental Page Hero
+   ========================================================================== */
+.hero-program.rental {
+    background: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 50%, var(--orange) 100%);
+}
+
+.hero-program.rental::before {
+    content: '📦';
+    position: absolute;
+    font-size: 25rem;
+    opacity: 0.05;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.program-badge.orange {
+    background: var(--orange);
+    color: var(--white);
+}
+
+.hero-program.rental .hero-price {
+    color: var(--yellow);
+}
+
+.hero-program.rental .btn-primary {
+    background: var(--yellow);
+    box-shadow: 0 4px 20px rgba(255, 215, 0, 0.4);
+}
+
+.hero-program.rental .btn-primary:hover {
+    box-shadow: 0 6px 30px rgba(255, 215, 0, 0.6);
+}
+
+/* ==========================================================================
+   Rental Benefits Grid
+   ========================================================================== */
+.rental-benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.rental-benefit-card {
+    background: var(--white);
+    padding: 2.5rem;
+    border-radius: 20px;
+    border: 2px solid var(--medium-gray);
+    display: flex;
+    gap: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.rental-benefit-card:hover {
+    border-color: var(--orange);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 40px rgba(255, 140, 0, 0.15);
+}
+
+.rental-benefit-card .benefit-icon {
+    font-size: 3rem;
+    flex-shrink: 0;
+}
+
+.rental-benefit-card h3 {
+    color: var(--dark-blue);
+    margin-bottom: 0.5rem;
+}
+
+.rental-benefit-card p {
+    color: var(--text-gray);
+    line-height: 1.7;
+}
+
+/* ==========================================================================
+   Equipment Cards (Rental page)
+   ========================================================================== */
+.equipment-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.equipment-card {
+    background: var(--white);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 3px solid var(--medium-gray);
+    transition: all 0.3s ease;
+}
+
+.equipment-card:hover {
+    border-color: var(--orange);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 50px rgba(255, 140, 0, 0.2);
+}
+
+.equipment-image {
+    height: 180px;
+    background: linear-gradient(135deg, var(--primary-blue), var(--cyan));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+}
+
+.equipment-body {
+    padding: 2rem;
+}
+
+.equipment-name {
+    font-size: 1.5rem;
+    color: var(--dark-blue);
+    margin-bottom: 1rem;
+}
+
+.equipment-specs {
+    list-style: none;
+    margin: 1.5rem 0;
+}
+
+.equipment-specs li {
+    padding: 0.5rem 0;
+    color: var(--text-gray);
+    font-size: 0.9rem;
+    border-bottom: 1px solid var(--medium-gray);
+}
+
+.equipment-specs li:last-child {
+    border-bottom: none;
+}
+
+.equipment-specs strong {
+    color: var(--dark-blue);
+}
+
+.equipment-price {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--orange);
+    text-align: center;
+    margin: 1.5rem 0;
+}
+
+.equipment-price-note {
+    text-align: center;
+    color: var(--text-gray);
+    font-size: 0.85rem;
+}
+
+/* ==========================================================================
+   Included Box (Rental page - orange variant)
+   ========================================================================== */
+.included-box-orange {
+    background: var(--white);
+    border-radius: 25px;
+    padding: 3rem;
+    margin-top: 3rem;
+    border: 3px solid var(--orange);
+}
+
+.included-box-orange .included-check {
+    font-size: 1.5rem;
+    color: var(--orange);
+    flex-shrink: 0;
+}
+
+/* ==========================================================================
+   Safety Warning Box
+   ========================================================================== */
+.safety-warning {
+    background: linear-gradient(135deg, rgba(255, 51, 51, 0.1), rgba(255, 140, 0, 0.1));
+    border: 3px solid #FF3333;
+    border-radius: 25px;
+    padding: 3rem;
+    margin-top: 3rem;
+}
+
+.warning-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.warning-icon {
+    font-size: 3rem;
+}
+
+.warning-header h3 {
+    color: #CC0000;
+    margin: 0;
+}
+
+.warning-rules {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.warning-rule {
+    background: var(--white);
+    padding: 1.5rem;
+    border-radius: 15px;
+    border-left: 4px solid #FF3333;
+}
+
+.warning-rule h4 {
+    color: #CC0000;
+    margin-bottom: 0.5rem;
+}
+
+.warning-rule p {
+    color: var(--text-gray);
+    line-height: 1.7;
+}
+
+/* ==========================================================================
+   Rental Pricing Table (4 columns)
+   ========================================================================== */
+.pricing-table-rental .pricing-row {
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+}
+
+.pricing-table-rental .pricing-cell strong {
+    color: var(--orange);
+    font-size: 1.1rem;
+}
+
+/* ==========================================================================
+   Process Steps (Rental page - horizontal)
+   ========================================================================== */
+.process-steps-horizontal {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.process-step-h {
+    text-align: center;
+    position: relative;
+}
+
+.process-step-h::after {
+    content: '→';
+    position: absolute;
+    right: -1.5rem;
+    top: 30px;
+    font-size: 2rem;
+    color: var(--cyan);
+}
+
+.process-step-h:last-child::after {
+    display: none;
+}
+
+.process-step-h .process-number {
+    background: linear-gradient(135deg, var(--orange), var(--yellow));
+    margin: 0 auto 1rem;
+}
+
+.process-step-h h4 {
+    color: var(--dark-blue);
+    margin-bottom: 0.5rem;
+}
+
+.process-step-h p {
+    color: var(--text-gray);
+    font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   Who For Grid (Rental page)
+   ========================================================================== */
+.who-for-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.who-for-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 20px;
+    border: 2px solid var(--medium-gray);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.who-for-card:hover {
+    border-color: var(--orange);
+    transform: translateY(-5px);
+}
+
+.who-for-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+.who-for-card h3 {
+    color: var(--dark-blue);
+    margin-bottom: 1rem;
+}
+
+.who-for-card p {
+    color: var(--text-gray);
+    line-height: 1.7;
+}
+
+/* ==========================================================================
+   Comparison Box (Rental vs Service)
+   ========================================================================== */
+.comparison-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.comparison-side {
+    padding: 2rem;
+    border-radius: 15px;
+}
+
+.comparison-side.rental {
+    background: linear-gradient(135deg, rgba(255, 140, 0, 0.1), rgba(255, 215, 0, 0.1));
+    border: 2px solid var(--orange);
+}
+
+.comparison-side.service {
+    background: linear-gradient(135deg, rgba(0, 102, 255, 0.1), rgba(0, 212, 255, 0.1));
+    border: 2px solid var(--cyan);
+}
+
+.comparison-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.comparison-side.rental .comparison-title {
+    color: var(--orange);
+}
+
+.comparison-side.service .comparison-title {
+    color: var(--primary-blue);
+}
+
+.comparison-list {
+    list-style: none;
+}
+
+.comparison-list li {
+    padding: 0.75rem 0;
+    color: var(--text-gray);
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.comparison-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+.comparison-side.rental .comparison-list li::before {
+    color: var(--orange);
+}
+
+.comparison-side.service .comparison-list li::before {
+    color: var(--cyan);
+}
+
+/* ==========================================================================
+   CTA Box Orange (Rental page)
+   ========================================================================== */
+.cta-box-orange {
+    background: linear-gradient(135deg, var(--orange), var(--yellow));
+    color: var(--white);
+    padding: 4rem 3rem;
+    border-radius: 25px;
+    text-align: center;
+    margin-top: 4rem;
+}
+
+.cta-box-orange h2 {
+    color: var(--white);
+    margin-bottom: 1rem;
+}
+
+.cta-box-orange p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+/* ==========================================================================
+   Rental Page Responsive
+   ========================================================================== */
+@media (max-width: 768px) {
+    .rental-benefits-grid,
+    .equipment-grid,
+    .who-for-grid,
+    .comparison-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .process-steps-horizontal {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .process-step-h::after {
+        display: none;
+    }
+
+    .pricing-table-rental .pricing-row {
+        grid-template-columns: 1fr;
+    }
+}

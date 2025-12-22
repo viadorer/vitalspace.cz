@@ -857,6 +857,110 @@ h4 { font-size: clamp(1.1rem, 2.5vw, 1.4rem); }
 }
 
 /* ==========================================================================
+   Diagnostics Section (Měření a diagnostika)
+   ========================================================================== */
+.diagnostics-section {
+    padding: 6rem 2rem;
+    background: var(--white);
+}
+
+.diagnostics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.diagnostic-card {
+    background: var(--light-gray);
+    border: 3px solid var(--medium-gray);
+    border-radius: 25px;
+    padding: 2.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.diagnostic-card.featured {
+    border-color: var(--cyan);
+    background: linear-gradient(135deg, var(--light-gray) 0%, var(--white) 100%);
+}
+
+.diagnostic-card.featured::before {
+    content: 'DOPORUČENO';
+    position: absolute;
+    top: 20px;
+    right: -30px;
+    background: var(--cyan);
+    color: var(--dark-blue);
+    padding: 0.3rem 3rem;
+    font-size: 0.75rem;
+    font-weight: 800;
+    transform: rotate(45deg);
+    letter-spacing: 1px;
+}
+
+.diagnostic-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 60px rgba(0, 102, 255, 0.15);
+}
+
+.diagnostic-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid var(--medium-gray);
+}
+
+.diagnostic-icon.emoji {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.diagnostic-header h3 {
+    color: var(--dark-blue);
+    margin-bottom: 0.5rem;
+}
+
+.diagnostic-subtitle {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--primary-blue), var(--cyan));
+    color: var(--white);
+    padding: 0.3rem 1rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.diagnostic-features {
+    list-style: none;
+    margin: 1.5rem 0;
+}
+
+.diagnostic-features li {
+    padding: 0.75rem 0;
+    color: var(--text-gray);
+    position: relative;
+    padding-left: 1.5rem;
+    border-bottom: 1px solid var(--medium-gray);
+}
+
+.diagnostic-features li:last-child {
+    border-bottom: none;
+}
+
+.diagnostic-features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--cyan);
+    font-weight: bold;
+}
+
+/* ==========================================================================
    Safety Section
    ========================================================================== */
 .safety-section {
@@ -1197,7 +1301,8 @@ h4 { font-size: clamp(1.1rem, 2.5vw, 1.4rem); }
 
     .science-grid,
     .tech-grid,
-    .safety-rules {
+    .safety-rules,
+    .diagnostics-grid {
         grid-template-columns: 1fr;
     }
 

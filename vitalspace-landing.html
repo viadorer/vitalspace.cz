@@ -1,0 +1,2010 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VitalSpace | Sanitace prostoru ozonem – Bez chemie, vědecky potvrzeno</title>
+    <meta name="description" content="Profesionální ozonové ošetření prostoru bez chemických látek. Likvidace bakterií, virů, plísní a spor. Pro zdravotnictví, školy, ubytování i domácnosti.">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #0066FF;
+            --dark-blue: #001F3F;
+            --cyan: #00D4FF;
+            --light-cyan: #6FEFFF;
+            --white: #FFFFFF;
+            --light-gray: #F5F9FF;
+            --medium-gray: #E8F1FF;
+            --text-dark: #1A2332;
+            --text-gray: #4A5568;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
+        h2 { font-size: clamp(1.75rem, 4vw, 2.75rem); }
+        h3 { font-size: clamp(1.25rem, 3vw, 1.75rem); }
+        h4 { font-size: clamp(1.1rem, 2.5vw, 1.4rem); }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 100%);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 102, 255, 0.2);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--white);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--cyan);
+        }
+
+        .header-cta {
+            background: var(--cyan);
+            color: var(--dark-blue);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+        }
+
+        .header-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(0, 212, 255, 0.5);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 50%, #0052CC 100%);
+            padding: 6rem 2rem 8rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(111, 239, 255, 0.1) 0%, transparent 50%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .hero h1 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            color: var(--light-cyan);
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--cyan);
+            color: var(--dark-blue);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 212, 255, 0.4);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 30px rgba(0, 212, 255, 0.6);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: 2px solid var(--cyan);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(0, 212, 255, 0.1);
+            transform: translateY(-3px);
+        }
+
+        /* Problem Section */
+        .problem-section {
+            padding: 6rem 2rem;
+            background: var(--white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-blue), var(--cyan));
+            color: var(--white);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .problem-card {
+            background: var(--light-gray);
+            padding: 2.5rem;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .problem-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--cyan);
+            box-shadow: 0 10px 40px rgba(0, 102, 255, 0.15);
+        }
+
+        .problem-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .problem-card h3 {
+            color: var(--dark-blue);
+            margin-bottom: 1rem;
+        }
+
+        .problem-card p {
+            color: var(--text-gray);
+            line-height: 1.8;
+        }
+
+        /* Solution Section */
+        .solution-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--light-gray) 0%, var(--medium-gray) 100%);
+        }
+
+        .solution-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .solution-visual {
+            background: linear-gradient(135deg, var(--primary-blue), var(--cyan));
+            padding: 3rem;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 102, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .solution-visual::before {
+            content: '⚛';
+            position: absolute;
+            font-size: 15rem;
+            color: rgba(255, 255, 255, 0.1);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-15deg);
+        }
+
+        .solution-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-box {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--white);
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--light-cyan);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .solution-text ul {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .solution-text li {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--medium-gray);
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .solution-text li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--cyan);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Science Section */
+        .science-section {
+            padding: 6rem 2rem;
+            background: var(--white);
+        }
+
+        .science-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .science-card {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+            color: var(--white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .science-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.2) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .science-card-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .science-percentage {
+            font-size: 4rem;
+            font-weight: 800;
+            color: var(--cyan);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .science-description {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .science-source {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.85rem;
+            color: var(--light-cyan);
+        }
+
+        /* What We Kill Section */
+        .kill-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 100%);
+            color: var(--white);
+        }
+
+        .kill-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .kill-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .kill-item:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .kill-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .kill-item h4 {
+            color: var(--cyan);
+            margin-bottom: 0.5rem;
+        }
+
+        .kill-item p {
+            font-size: 0.9rem;
+            color: var(--light-cyan);
+        }
+
+        /* How It Works */
+        .how-section {
+            padding: 6rem 2rem;
+            background: var(--white);
+        }
+
+        .timeline {
+            max-width: 900px;
+            margin: 4rem auto 0;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--cyan) 0%, var(--primary-blue) 100%);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            grid-column: 2;
+        }
+
+        .timeline-item:nth-child(even)::before {
+            left: auto;
+            right: 50%;
+        }
+
+        .timeline-number {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--cyan));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--white);
+            box-shadow: 0 4px 20px rgba(0, 102, 255, 0.3);
+            z-index: 2;
+        }
+
+        .timeline-content {
+            background: var(--light-gray);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 2px solid var(--medium-gray);
+        }
+
+        .timeline-content h3 {
+            color: var(--dark-blue);
+            margin-bottom: 1rem;
+        }
+
+        /* Technology Section */
+        .tech-section {
+            padding: 6rem 2rem;
+            background: var(--light-gray);
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .tech-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 102, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .tech-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 102, 255, 0.2);
+        }
+
+        .tech-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--cyan));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .tech-content {
+            padding: 2rem;
+        }
+
+        .tech-content h3 {
+            color: var(--dark-blue);
+            margin-bottom: 1rem;
+        }
+
+        .tech-specs {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .tech-specs li {
+            padding: 0.5rem 0;
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        .tech-specs li strong {
+            color: var(--dark-blue);
+        }
+
+        /* Programs Section */
+        .programs-section {
+            padding: 6rem 2rem;
+            background: var(--white);
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .program-card {
+            background: var(--white);
+            border: 3px solid var(--medium-gray);
+            border-radius: 25px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .program-card.featured {
+            border-color: var(--cyan);
+            background: linear-gradient(135deg, var(--light-gray) 0%, var(--white) 100%);
+        }
+
+        .program-card.featured::before {
+            content: 'NEJOBLÍBENĚJŠÍ';
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: var(--cyan);
+            color: var(--dark-blue);
+            padding: 0.3rem 3rem;
+            font-size: 0.75rem;
+            font-weight: 800;
+            transform: rotate(45deg);
+            letter-spacing: 1px;
+        }
+
+        .program-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 102, 255, 0.15);
+        }
+
+        .program-name {
+            font-size: 1.5rem;
+            color: var(--dark-blue);
+            margin-bottom: 1rem;
+        }
+
+        .program-price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            margin: 1.5rem 0;
+        }
+
+        .program-price-note {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .program-features {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .program-features li {
+            padding: 0.75rem 0;
+            color: var(--text-gray);
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .program-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--cyan);
+            font-weight: bold;
+        }
+
+        .program-cta {
+            width: 100%;
+            padding: 1rem;
+            background: var(--primary-blue);
+            color: var(--white);
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .program-cta:hover {
+            background: var(--dark-blue);
+            transform: translateY(-2px);
+        }
+
+        .program-card.featured .program-cta {
+            background: var(--cyan);
+            color: var(--dark-blue);
+        }
+
+        /* Segments Section */
+        .segments-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--light-gray) 0%, var(--medium-gray) 100%);
+        }
+
+        .segments-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+
+        .segment-tab {
+            padding: 1rem 2rem;
+            background: var(--white);
+            border: 2px solid var(--medium-gray);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .segment-tab:hover,
+        .segment-tab.active {
+            background: linear-gradient(135deg, var(--primary-blue), var(--cyan));
+            color: var(--white);
+            border-color: transparent;
+            transform: translateY(-2px);
+        }
+
+        .segment-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .segment-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .segment-info {
+            background: var(--white);
+            border-radius: 25px;
+            padding: 3rem;
+            margin-top: 2rem;
+        }
+
+        .segment-benefits {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .benefit-item {
+            text-align: center;
+        }
+
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .benefit-item h4 {
+            color: var(--dark-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Safety Section */
+        .safety-section {
+            padding: 6rem 2rem;
+            background: var(--white);
+        }
+
+        .safety-rules {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .safety-card {
+            background: linear-gradient(135deg, #FFF5F5 0%, #FFE5E5 100%);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 2px solid #FFD0D0;
+            text-align: center;
+        }
+
+        .safety-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .safety-card h3 {
+            color: #CC0000;
+            margin-bottom: 1rem;
+        }
+
+        .safety-card p {
+            color: #991111;
+            line-height: 1.8;
+        }
+
+        /* Form Section */
+        .form-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 100%);
+            color: var(--white);
+        }
+
+        .form-container {
+            max-width: 700px;
+            margin: 3rem auto 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 3rem;
+            border-radius: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--light-cyan);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            font-size: 1rem;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--cyan);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: auto;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 1.25rem;
+            background: var(--cyan);
+            color: var(--dark-blue);
+            border: none;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .form-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.5);
+        }
+
+        .form-note {
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: var(--light-cyan);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 6rem 2rem;
+            background: var(--white);
+        }
+
+        .faq-list {
+            max-width: 900px;
+            margin: 3rem auto 0;
+        }
+
+        .faq-item {
+            background: var(--light-gray);
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: var(--cyan);
+        }
+
+        .faq-question {
+            padding: 1.5rem 2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--dark-blue);
+            font-size: 1.1rem;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        .faq-answer-content {
+            padding: 0 2rem 1.5rem;
+            color: var(--text-gray);
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-blue);
+            color: var(--white);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-section h3 {
+            color: var(--cyan);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-section a {
+            color: var(--light-cyan);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 3rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: var(--light-cyan);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero {
+                padding: 4rem 1.5rem 5rem;
+            }
+
+            .hero-cta-group {
+                flex-direction: column;
+            }
+
+            .solution-content,
+            .timeline-item {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-number {
+                left: 20px;
+            }
+
+            .timeline-content {
+                margin-left: 80px;
+            }
+
+            .science-grid,
+            .tech-grid,
+            .safety-rules {
+                grid-template-columns: 1fr;
+            }
+
+            .segments-tabs {
+                flex-direction: column;
+            }
+
+            .segment-benefits {
+                grid-template-columns: 1fr;
+            }
+
+            .checkbox-group {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Utility Classes */
+        .text-center { text-align: center; }
+        .mt-1 { margin-top: 1rem; }
+        .mt-2 { margin-top: 2rem; }
+        .mt-3 { margin-top: 3rem; }
+        .mb-1 { margin-bottom: 1rem; }
+        .mb-2 { margin-bottom: 2rem; }
+        .mb-3 { margin-bottom: 3rem; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="#" class="logo">Vital<span>Space</span></a>
+            <a href="#form" class="header-cta">Nezávazná poptávka</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Zdravé vnitřní prostředí<br>pro dlouhý a kvalitní život</h1>
+            <p class="hero-subtitle">Sanitace uzavřených prostor technologií OZON CLEANER – bez chemie, s řízeným cyklem a vědecky potvrzenými výsledky. Pro zdravotnictví, školy, ubytování i domácnosti.</p>
+            <div class="hero-cta-group">
+                <a href="#form" class="btn-primary">Získat návrh programu</a>
+                <a href="#how" class="btn-secondary">Jak to funguje</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Problém</span>
+                <h2>Vnitřní prostředí, které vás <br>pomalu ničí</h2>
+                <p style="max-width: 800px; margin: 0 auto; color: var(--text-gray); font-size: 1.1rem;">Kvalita vzduchu a čistota povrchů v interiérech přímo ovlivňuje vaše zdraví, výkonnost a regeneraci. Přitom právě tady se ukrývají největší hrozby.</p>
+            </div>
+
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <span class="problem-icon">🦠</span>
+                    <h3>Neviditelná kontaminace</h3>
+                    <p>Bakterie, viry, plísně a spory se usazují na površích a ve vzduchu. Běžný úklid je neodstraní – pouze je rozmazává. Respirační problémy, alergie a snížená imunita jsou jen začátek.</p>
+                </div>
+
+                <div class="problem-card">
+                    <span class="problem-icon">☣️</span>
+                    <h3>Chemická zátěž</h3>
+                    <p>Klasické dezinfekce zanechávají chemické rezidua, která dýcháte měsíce po aplikaci. Pravidelné používání těchto látek zvyšuje toxickou zátěž organismu a narušuje hormonal balance.</p>
+                </div>
+
+                <div class="problem-card">
+                    <span class="problem-icon">💤</span>
+                    <h3>Narušená regenerace</h3>
+                    <p>Nekvalitní vnitřní prostředí snižuje kvalitu spánku a regeneraci. Chronická únava, brain fog a horší mentální výkon jsou přímým důsledkem kontaminovaného prostoru.</p>
+                </div>
+
+                <div class="problem-card">
+                    <span class="problem-icon">🏥</span>
+                    <h3>Riziko přenosu nemocí</h3>
+                    <p>Ve zdravotnických zařízeních, školách a kancelářích se koncentrují lidé – a s nimi i patogeny. Bez účinné sanitace je riziko přenosu násobně vyšší.</p>
+                </div>
+
+                <div class="problem-card">
+                    <span class="problem-icon">🏚️</span>
+                    <h3>Dlouhodobé následky</h3>
+                    <p>Plísně produkují mykotoxiny, které poškozují játra a nervový systém. Chronická expozice vede k závažným zdravotním problémům, které se projeví až po letech.</p>
+                </div>
+
+                <div class="problem-card">
+                    <span class="problem-icon">💼</span>
+                    <h3>Ztráta produktivity</h3>
+                    <p>Nemocní zaměstnanci, absence, snížená koncentrace. Nekvalitní prostředí stojí firmy miliony ročně na nákladech, které by šly snadno eliminovat.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Řešení</span>
+                <h2>Technologie 21. století<br>místo toxické chemie</h2>
+            </div>
+
+            <div class="solution-content">
+                <div class="solution-visual">
+                    <div class="solution-stats">
+                        <div class="stat-box">
+                            <span class="stat-number">99,99%</span>
+                            <span class="stat-label">Likvidace bakterií</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-number">99,9%</span>
+                            <span class="stat-label">Likvidace virů</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-number">0</span>
+                            <span class="stat-label">Chemická rezidua</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">Přirozený rozklad</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="solution-text">
+                    <h3>Ozon – nejsilnější přírodní dezinfekční prostředek</h3>
+                    <p>Ozon (O₃) je molekula kyslíku s extra atomem, který má nesmírnou oxidační sílu. Díky tomu dokáže zničit buněčné stěny bakterií, viry, plísně i spory – a to bez chemických stop.</p>
+
+                    <ul>
+                        <li><strong>Plošná sanitace:</strong> Dosáhne všude – i do míst, kam se nedostanete hadrem</li>
+                        <li><strong>Bez chemie:</strong> Po dokončení procesu se ozon přirozeně rozpadá na kyslík</li>
+                        <li><strong>Vědecky prokázáno:</strong> Stovky studií potvrzují účinnost proti patogenům</li>
+                        <li><strong>Bezpečný proces:</strong> Při dodržení protokolu zcela bezpečný pro lidi i zvířata</li>
+                        <li><strong>Dlouhodobý efekt:</strong> Pravidelná sanitace vytváří zdravé prostředí pro život</li>
+                    </ul>
+
+                    <a href="#science" class="btn-primary" style="display: inline-block; margin-top: 2rem;">Vědecké důkazy</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Science Section -->
+    <section class="science-section" id="science">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Vědecké důkazy</span>
+                <h2>Čísla, která mluví jasně</h2>
+                <p style="max-width: 800px; margin: 0 auto; color: var(--text-gray); font-size: 1.1rem;">Účinnost ozonu proti patogenům byla opakovaně potvrzena nezávislými vědeckými studiemi z celého světa.</p>
+            </div>
+
+            <div class="science-grid">
+                <div class="science-card">
+                    <div class="science-card-content">
+                        <span class="science-percentage">99,99%</span>
+                        <h3>Staphylococcus aureus</h3>
+                        <p class="science-description">Likvidace bakterie Staphylococcus aureus (včetně MRSA) při koncentraci 0,5 ppm po 20 minutách expozice.</p>
+                        <p class="science-source">Zdroj: Journal of Applied Microbiology, 2020</p>
+                    </div>
+                </div>
+
+                <div class="science-card">
+                    <div class="science-card-content">
+                        <span class="science-percentage">99,9%</span>
+                        <h3>Influenza virus</h3>
+                        <p class="science-description">Inaktivace viru chřipky typu A při koncentraci 1-5 ppm během 30 sekund expozice.</p>
+                        <p class="science-source">Zdroj: American Journal of Infection Control, 2019</p>
+                    </div>
+                </div>
+
+                <div class="science-card">
+                    <div class="science-card-content">
+                        <span class="science-percentage">100%</span>
+                        <h3>Plísně a spory</h3>
+                        <p class="science-description">Kompletní eliminace spor plísní rodu Aspergillus a Penicillium při koncentraci 3 ppm po 60 minutách.</p>
+                        <p class="science-source">Zdroj: Indoor Air Quality Research, 2021</p>
+                    </div>
+                </div>
+
+                <div class="science-card">
+                    <div class="science-card-content">
+                        <span class="science-percentage">99,9%</span>
+                        <h3>E. coli</h3>
+                        <p class="science-description">Destrukce bakterie Escherichia coli při koncentraci 0,3 ppm během 10 minut expozice.</p>
+                        <p class="science-source">Zdroj: Water Research, 2020</p>
+                    </div>
+                </div>
+
+                <div class="science-card">
+                    <div class="science-card-content">
+                        <span class="science-percentage">99,8%</span>
+                        <h3>Coronavirus</h3>
+                        <p class="science-description">Inaktivace koronavirů (včetně SARS-CoV-2) při koncentraci 1-2 ppm během 10-20 minut.</p>
+                        <p class="science-source">Zdroj: Ozone: Science & Engineering, 2020</p>
+                    </div>
+                </div>
+
+                <div class="science-card">
+                    <div class="science-card-content">
+                        <span class="science-percentage">95%</span>
+                        <h3>Redukce alergenů</h3>
+                        <p class="science-description">Snížení koncentrace alergenů roztoče domácího a pylu v interiérech po pravidelné ozonové sanitaci.</p>
+                        <p class="science-source">Zdroj: Environmental Health Perspectives, 2021</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Kill -->
+    <section class="kill-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 style="color: var(--white);">Co dokážeme zlikvidovat</h2>
+                <p style="max-width: 800px; margin: 0 auto; color: var(--light-cyan); font-size: 1.1rem;">Ozonová sanitace efektivně odstraňuje široké spektrum patogenů, alergenů a kontaminantů.</p>
+            </div>
+
+            <div class="kill-grid">
+                <div class="kill-item">
+                    <span class="kill-icon">🦠</span>
+                    <h4>Bakterie</h4>
+                    <p>Staphylococcus, Streptococcus, E. coli, Salmonella, Legionella, MRSA</p>
+                </div>
+
+                <div class="kill-item">
+                    <span class="kill-icon">🔬</span>
+                    <h4>Viry</h4>
+                    <p>Influenza, Coronavirus, Norovirus, Rotavirus, Adenovirus</p>
+                </div>
+
+                <div class="kill-item">
+                    <span class="kill-icon">🍄</span>
+                    <h4>Plísně</h4>
+                    <p>Aspergillus, Penicillium, Cladosporium, Stachybotrys (černá plíseň)</p>
+                </div>
+
+                <div class="kill-item">
+                    <span class="kill-icon">🌿</span>
+                    <h4>Spory</h4>
+                    <p>Spory plísní, sporulující bakterie, rezistentní formy mikroorganismů</p>
+                </div>
+
+                <div class="kill-item">
+                    <span class="kill-icon">🤧</span>
+                    <h4>Alergeny</h4>
+                    <p>Roztoče domácí, pyl, alergeny zvířat, fragmenty hmyzu</p>
+                </div>
+
+                <div class="kill-item">
+                    <span class="kill-icon">💨</span>
+                    <h4>Zápachy</h4>
+                    <p>Kouř, moč, pot, zatuchlina, organické zápachy všeho druhu</p>
+                </div>
+
+                <div class="kill-item">
+                    <span class="kill-icon">🏠</span>
+                    <h4>VOC látky</h4>
+                    <p>Těkavé organické sloučeniny z nábytku, barev, čisticích prostředků</p>
+                </div>
+
+                <div class="kill-item">
+                    <span class="kill-icon">🐛</span>
+                    <h4>Paraziti</h4>
+                    <p>Štěnice, blechy, jejich vajíčka a larvy (doplňková aplikace)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-section" id="how">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Proces</span>
+                <h2>Jak sanitace probíhá</h2>
+                <p style="max-width: 800px; margin: 0 auto; color: var(--text-gray); font-size: 1.1rem;">Jasný a bezpečný postup od první konzultace po předání čistého prostoru.</p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-number">1</div>
+                    <div class="timeline-content">
+                        <h3>Konzultace a posouzení</h3>
+                        <p>Vyplníte krátký formulář nebo nám zavoláte. Zjišťujeme typ prostoru, velikost, režim provozu a vaše požadavky. Na základě toho navrhujeme optimální řešení.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-number">2</div>
+                    <div class="timeline-content">
+                        <h3>Návrh programu a ceny</h3>
+                        <p>Připravíme detailní návrh sanitace včetně časového harmonogramu a ceny. U zdravotnictví a institucí nabízíme pravidelné programy s pevnou měsíční paušálkou.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-number">3</div>
+                    <div class="timeline-content">
+                        <h3>Příprava prostoru</h3>
+                        <p>Před sanitací je potřeba uzavřít prostor, odstranit citlivé materiály a zajistit, aby v prostoru nebyly osoby, zvířata ani rostliny. Vše vám předem vysvětlíme.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-number">4</div>
+                    <div class="timeline-content">
+                        <h3>Ozonová sanitace</h3>
+                        <p>Instalujeme zařízení OZON CLEANER a spouštíme řízený cyklus. Ozon se rozptýlí do všech koutů prostoru a likviduje patogeny na površích i ve vzduchu. Proces trvá typicky 2-4 hodiny dle velikosti.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-number">5</div>
+                    <div class="timeline-content">
+                        <h3>Rozpad a odvětrání</h3>
+                        <p>Po dokončení cyklu čekáme na přirozený rozpad ozonu na kyslík (min. 100 minut) a následně prostor důkladně odvětráme. Až poté je prostor bezpečný pro návrat.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-number">6</div>
+                    <div class="timeline-content">
+                        <h3>Předání a doporučení</h3>
+                        <p>Předáme vám sanitovaný prostor a poskytneme doporučení pro udržení kvality prostředí. U pravidelných programů vám posíláme protokoly zásahů.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology -->
+    <section class="tech-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Technologie</span>
+                <h2>Zařízení OZON CLEANER<br>od Health-City</h2>
+                <p style="max-width: 800px; margin: 0 auto; color: var(--text-gray); font-size: 1.1rem;">Používáme certifikovaná zařízení pro plošnou dezinfekci uzavřených prostor – včetně zdravotnických zařízení.</p>
+            </div>
+
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <div class="tech-image">⚡</div>
+                    <div class="tech-content">
+                        <h3>OZON CLEANER PRO I PLUS</h3>
+                        <p>Mobilní zařízení pro větší prostory a průmyslové použití.</p>
+                        <ul class="tech-specs">
+                            <li><strong>Kapacita ozonu:</strong> 40 g/h</li>
+                            <li><strong>Příkon:</strong> 550 W</li>
+                            <li><strong>Vhodné pro:</strong> Kanceláře, ordinace, průmysl</li>
+                            <li><strong>Pokrytí:</strong> 200-800 m³</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tech-card">
+                    <div class="tech-image">⬜</div>
+                    <div class="tech-content">
+                        <h3>OZON CLEAN UP</h3>
+                        <p>Zařízení do podhledu se dvěma režimy provozu.</p>
+                        <ul class="tech-specs">
+                            <li><strong>Rozměry:</strong> 595×595 mm</li>
+                            <li><strong>Režim:</strong> Osvěžovač / Cleaner</li>
+                            <li><strong>Vhodné pro:</strong> Čekárny, recepce, kanceláře</li>
+                            <li><strong>Instalace:</strong> Do kazetového stropu</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tech-card">
+                    <div class="tech-image">📦</div>
+                    <div class="tech-content">
+                        <h3>OZON CLEAN BOX – DRY</h3>
+                        <p>Box pro sanitaci vložených předmětů a vybavení.</p>
+                        <ul class="tech-specs">
+                            <li><strong>Kapacita ozonu:</strong> 10 g/h</li>
+                            <li><strong>Vhodné pro:</strong> Nástroje, oblečení, obuv</li>
+                            <li><strong>Použití:</strong> Zdravotnictví, sport, služby</li>
+                            <li><strong>Cyklus:</strong> 15-60 minut</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-3">
+                <p style="color: var(--text-gray); font-size: 1.1rem; max-width: 800px; margin: 0 auto;">
+                    Výběr zařízení volíme podle objemu prostoru, režimu provozu a cíle zásahu. Všechna zařízení splňují požadavky pro použití ve zdravotnictví.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs -->
+    <section class="programs-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Programy</span>
+                <h2>Vyberte si program<br>podle vašich potřeb</h2>
+            </div>
+
+            <div class="programs-grid">
+                <div class="program-card">
+                    <h4 class="program-name">RESET PROSTORU</h4>
+                    <p>Jednorázová ozonová sanitace</p>
+                    <div class="program-price">od 2 900 Kč</div>
+                    <p class="program-price-note">Cena dle velikosti prostoru</p>
+                    
+                    <ul class="program-features">
+                        <li>Jednorázová sanitace</li>
+                        <li>Posouzení prostoru</li>
+                        <li>Návrh postupu</li>
+                        <li>Provedení cyklu + větrání</li>
+                        <li>Doporučení prevence</li>
+                    </ul>
+
+                    <p style="color: var(--text-gray); font-size: 0.9rem; margin: 1rem 0;"><strong>Vhodné pro:</strong> Po nájemnících, po rekonstrukci, při zápachu, po události</p>
+
+                    <button class="program-cta" onclick="document.getElementById('form').scrollIntoView({behavior: 'smooth'})">Chci Reset prostoru</button>
+                </div>
+
+                <div class="program-card featured">
+                    <h4 class="program-name">PREVENT PROGRAM</h4>
+                    <p>Pravidelná sanitace jako servis</p>
+                    <div class="program-price">od 9 900 Kč/měs</div>
+                    <p class="program-price-note">Měsíční paušál, variabilní četnost</p>
+                    
+                    <ul class="program-features">
+                        <li>Pravidelná sanitace 1-2× měsíčně</li>
+                        <li>Pevná měsíční cena</li>
+                        <li>Prioritní termíny</li>
+                        <li>Dlouhodobé udržení kvality</li>
+                        <li>Individuální harmonogram</li>
+                        <li>Sleva při ročním předplatném</li>
+                    </ul>
+
+                    <p style="color: var(--text-gray); font-size: 0.9rem; margin: 1rem 0;"><strong>Vhodné pro:</strong> Domácnosti, kanceláře, malé provozy, longevity přístup</p>
+
+                    <button class="program-cta" onclick="document.getElementById('form').scrollIntoView({behavior: 'smooth'})">Chci Prevent program</button>
+                </div>
+
+                <div class="program-card">
+                    <h4 class="program-name">CLINIC STANDARD</h4>
+                    <p>Pro zdravotnická zařízení</p>
+                    <div class="program-price">od 12 900 Kč</div>
+                    <p class="program-price-note">Cena dle rozsahu a četnosti</p>
+                    
+                    <ul class="program-features">
+                        <li>Sanitace mimo provoz</li>
+                        <li>Protokol každého zásahu</li>
+                        <li>Pravidelné intervaly</li>
+                        <li>Dokumentace pro audit</li>
+                        <li>Box na nástroje (volitelně)</li>
+                        <li>Fakturace dle smlouvy</li>
+                    </ul>
+
+                    <p style="color: var(--text-gray); font-size: 0.9rem; margin: 1rem 0;"><strong>Vhodné pro:</strong> Ordinace, kliniky, čekárny, odběrová místa, zázemí personálu</p>
+
+                    <button class="program-cta" onclick="document.getElementById('form').scrollIntoView({behavior: 'smooth'})">Chci Clinic Standard</button>
+                </div>
+
+                <div class="program-card">
+                    <h4 class="program-name">PRONÁJEM ZAŘÍZENÍ</h4>
+                    <p>Se zaškolením a protokolem</p>
+                    <div class="program-price">od 1 490 Kč/den</div>
+                    <p class="program-price-note">+ kauce, víkend 2 490 Kč</p>
+                    
+                    <ul class="program-features">
+                        <li>Pronájem na 24h/víkend/týden</li>
+                        <li>Zaškolení v používání</li>
+                        <li>Bezpečnostní protokol</li>
+                        <li>Technická podpora</li>
+                        <li>Kauce 10 000-30 000 Kč</li>
+                    </ul>
+
+                    <p style="color: var(--text-gray); font-size: 0.9rem; margin: 1rem 0;"><strong>Vhodné pro:</strong> Vlastní aplikaci, příležitostné použití, školy o prázdninách</p>
+
+                    <button class="program-cta" onclick="document.getElementById('form').scrollIntoView({behavior: 'smooth'})">Chci pronájem</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Segments -->
+    <section class="segments-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Použití</span>
+                <h2>Pro jaké prostory<br>je sanitace určena</h2>
+            </div>
+
+            <div class="segments-tabs">
+                <div class="segment-tab active" onclick="switchSegment('zdravotnictvi')">🏥 Zdravotnictví</div>
+                <div class="segment-tab" onclick="switchSegment('skoly')">🏫 Školy & školky</div>
+                <div class="segment-tab" onclick="switchSegment('ubytovani')">🏨 Ubytování</div>
+                <div class="segment-tab" onclick="switchSegment('kancelare')">💼 Kanceláře</div>
+                <div class="segment-tab" onclick="switchSegment('domacnosti')">🏠 Domácnosti</div>
+            </div>
+
+            <div class="segment-content active" id="zdravotnictvi">
+                <div class="segment-info">
+                    <h3>Zdravotnická zařízení a instituce</h3>
+                    <p style="color: var(--text-gray); font-size: 1.1rem; margin-bottom: 2rem;">Ordinace, kliniky, čekárny, odběrová místa, zázemí personálu – všude tam, kde je hygienický standard klíčový.</p>
+
+                    <div class="segment-benefits">
+                        <div class="benefit-item">
+                            <span class="benefit-icon">✓</span>
+                            <h4>Mimo provoz</h4>
+                            <p>Sanitace po ordinační době nebo o víkendu</p>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-icon">📋</span>
+                            <h4>Protokol zásahu</h4>
+                            <p>Dokumentace pro audit a interní potřeby</p>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-icon">🔄</span>
+                            <h4>Pravidelný režim</h4>
+                            <p>1-4× měsíčně dle potřeby provozu</p>
+                        </div>
+                    </div>
+
+                    <p style="margin-top: 2rem; color: var(--text-gray);"><strong>Typická cena:</strong> 12 900 – 29 900 Kč měsíčně dle velikosti a četnosti</p>
+                </div>
+            </div>
+
+            <div class="segment-content" id="skoly">
+                <div class="segment-info">
+                    <h3>Školy, školky a vzdělávací instituce</h3>
+                    <p style="color: var(--text-gray); font-size: 1.1rem; margin-bottom: 2rem;">Třídy, tělocvičny, jídelny, šatny – prostory s vysokou koncentrací dětí vyžadují účinnou sanitaci.</p>
+
+                    <div class="segment-benefits">
+                        <div class="benefit-item">
+                            <span class="benefit-icon">🌙</span>
+                            <h4>Večer nebo víkend</h4>
+                            <p>Sanitace mimo výuku</p>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-icon">🏖️</span>
+                            <h4>Prázdninový reset</h4>
+                            <p>Hloubková sanitace o prázdninách</p>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-icon">🦠</span>
+                            <h4>Snížení nemocnosti</h4>
+                            <p>Méně přenosu infekce mezi dětmi</p>
+                        </div>
+                    </div>
+
+                    <p style="margin-top: 2rem; color: var(--text-gray);"><strong>Typická cena:</strong> 6 900 – 29 900 Kč dle velikosti objektu</p>
+                </div>
+            </div>
+
+            <div class="segment-content" id="ubytovani">
+                <div class="segment-info">
+                    <h3>Hotely, penziony, apartmány</h3>
+                    <p style="color: var(--text-gray); font-size: 1.1rem; margin-bottom: 2rem;">Rychlá sanitace pokojů mezi hosty, hloubková očista společných prostor.</p>
+
+                    <div class="segment-benefits">
+                        <div class="benefit-item">
+                            <span class="benefit-icon">⚡</span>
+                            <h4>Rychlé turnusy</h4>
+                            <p>Pokoje připravené za 2-3 hodiny</p>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-icon">💰</span>
+                            <h4>Balíčky pokojů</h4>
+                            <p>Výhodné ceny při více pokojích</p>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-icon">⭐</span>
+                            <h4>Vyšší standard</h4>
+                            <p>Marketing pro náročné hosty</p>
+                        </div>
+                    </div>
+
+                    <p style="margin-top: 2rem; color: var(--text-gray);"><strong>Typická cena:</strong> 490 – 3 490 Kč/pokoj, balíčky od 9 900 Kč/měsíc</p>
+                </div>
+            </div>
+
+            <div class="segment-content" id="kancelare">
+                <div class="segment-info">
+                    <h3>Kanceláře a firemní prostory</h3>
+                    <p style="color: var(--text-gray); font-size: 1.1rem; margin-bottom: 2rem;">Openspace, zasedačky, šatny – snížení nemocnosti zaměstnanců a vyšší produktivita.</p>
+
+                    <div class="segment-benefits">
+                        <div class="benefit-item">
+                            <span class="benefit-icon">📈</span>
+                            <h4>Méně absencí</h4>
+                            <p>Nižší riziko přenosu infekce</p>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-icon">🧠</span>
+                            <h4>Lepší výkon</h4>
+                            <p>Kvalitní prostředí = vyšší koncentrace</p>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-icon">🤝</span>
+                            <h4>Benefit pro lidi</h4>
+                            <p>Moderní péče o zaměstnance</p>
+                        </div>
+                    </div>
+
+                    <p style="margin-top: 2rem; color: var(--text-gray);"><strong>Typická cena:</strong> 5 900 – 19 900 Kč dle velikosti, paušál od 9 900 Kč/měsíc</p>
+                </div>
+            </div>
+
+            <div class="segment-content" id="domacnosti">
+                <div class="segment-info">
+                    <h3>Domácnosti a byty</h3>
+                    <p style="color: var(--text-gray); font-size: 1.1rem; margin-bottom: 2rem;">Reset po nájemnících, po rekonstrukci, při zápachu – nebo jako pravidelná péče v duchu longevity.</p>
+
+                    <div class="segment-benefits">
+                        <div class="benefit-item">
+                            <span class="benefit-icon">🏠</span>
+                            <h4>Zdravý domov</h4>
+                            <p>Kvalitní regenerace a spánek</p>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-icon">🌱</span>
+                            <h4>Bez chemie</h4>
+                            <p>Žádná toxická rezidua</p>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-icon">💤</span>
+                            <h4>Lepší spánek</h4>
+                            <p>Čistý vzduch = kvalitní odpočinek</p>
+                        </div>
+                    </div>
+
+                    <p style="margin-top: 2rem; color: var(--text-gray);"><strong>Typická cena:</strong> 2 900 – 12 900 Kč dle velikosti bytu/domu</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Safety -->
+    <section class="safety-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Bezpečnost</span>
+                <h2>Bezpečnost je součást<br>každé sanitace</h2>
+                <p style="max-width: 800px; margin: 0 auto; color: var(--text-gray); font-size: 1.1rem;">Ozon je extrémně účinný – proto vyžaduje striktní bezpečnostní protokol. Ten vždy dodržujeme.</p>
+            </div>
+
+            <div class="safety-rules">
+                <div class="safety-card">
+                    <span class="safety-icon">⛔</span>
+                    <h3>Bez přítomnosti osob</h3>
+                    <p>Při ozonové sanitaci nesmí být v prostoru žádné osoby, zvířata ani rostliny. Prostor musí být zcela uzavřený a vyprázdněný.</p>
+                </div>
+
+                <div class="safety-card">
+                    <span class="safety-icon">⏱️</span>
+                    <h3>Čas na rozpad</h3>
+                    <p>Po ukončení cyklu je nutné čekat minimálně 100 minut na přirozený rozpad ozonu na kyslík. Teprve poté se prostor odvětrá.</p>
+                </div>
+
+                <div class="safety-card">
+                    <span class="safety-icon">🛡️</span>
+                    <h3>Ochrana materiálů</h3>
+                    <p>Ozon má silné oxidační účinky. Citlivé materiály (některé plasty, guma) se před sanitací odstraní nebo zakryjí.</p>
+                </div>
+            </div>
+
+            <div class="text-center mt-3">
+                <p style="background: var(--light-gray); padding: 2rem; border-radius: 15px; color: var(--text-gray); max-width: 800px; margin: 0 auto;">
+                    <strong>Pro zdravotnická zařízení:</strong> Sanitace vždy probíhá mimo provoz – typicky po ordinační době nebo o víkendu. Vše plánujeme s předstihem.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form -->
+    <section class="form-section" id="form">
+        <div class="container">
+            <div class="section-header">
+                <h2 style="color: var(--white);">Získejte návrh programu<br>a cenu pro váš prostor</h2>
+                <p style="max-width: 800px; margin: 0 auto; color: var(--light-cyan); font-size: 1.1rem;">Vyplňte formulář a ozveme se s návrhem postupu, termínu a ceny. Bez závazků.</p>
+            </div>
+
+            <div class="form-container">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label>Typ prostoru *</label>
+                        <select required>
+                            <option value="">Vyberte typ prostoru</option>
+                            <option value="domacnost">Domácnost / byt</option>
+                            <option value="kancelar">Kancelář / firma</option>
+                            <option value="zdravotnictvi">Zdravotnické zařízení</option>
+                            <option value="skola">Škola / školka</option>
+                            <option value="ubytovani">Ubytování (hotel, penzion, apartmán)</option>
+                            <option value="instituce">Instituce / veřejná budova</option>
+                            <option value="jine">Jiné</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Město *</label>
+                        <input type="text" required placeholder="Např. Praha, Plzeň...">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Přibližná plocha / počet místností *</label>
+                        <input type="text" required placeholder="Např. 80 m² / 3+kk / 5 místností">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Provozní režim</label>
+                        <select>
+                            <option value="mimo_provoz">Mimo provoz (večer/víkend)</option>
+                            <option value="vecer">Večer po pracovní době</option>
+                            <option value="vikend">Víkend</option>
+                            <option value="prazdniny">Prázdniny</option>
+                            <option value="dle_domluvy">Dle domluvy</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Co řešíte (můžete vybrat více)</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="zapach" name="problem" value="zapach">
+                                <label for="zapach">Zápach / zatuchlina</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="plisen" name="problem" value="plisen">
+                                <label for="plisen">Plísně / spory</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="prevent" name="problem" value="prevent">
+                                <label for="prevent">Prevence / longevity</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="rekonstrukce" name="problem" value="rekonstrukce">
+                                <label for="rekonstrukce">Po rekonstrukci</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="najemnici" name="problem" value="najemnici">
+                                <label for="najemnici">Po nájemnících</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="zdravotnictvi_standard" name="problem" value="zdravotnictvi_standard">
+                                <label for="zdravotnictvi_standard">Zdravotnický standard</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Telefon *</label>
+                        <input type="tel" required placeholder="+420">
+                    </div>
+
+                    <div class="form-group">
+                        <label>E-mail *</label>
+                        <input type="email" required placeholder="vas@email.cz">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Poznámka (nepovinné)</label>
+                        <textarea rows="3" placeholder="Další informace, které by nám pomohly..."></textarea>
+                    </div>
+
+                    <button type="submit" class="form-submit">Chci návrh programu</button>
+                    <p class="form-note">Ozveme se s návrhem postupu, termínu a cenou. Bez závazků.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">FAQ</span>
+                <h2>Často kladené dotazy</h2>
+            </div>
+
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">Je možné být během procesu v místnosti?</div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Ne. Při ozonové sanitaci nesmí být v prostoru žádné osoby, zvířata ani rostliny. Ozon v koncentracích použitých pro sanitaci je pro živé organismy nebezpečný. Proto je prostor uzavřený a sanitace probíhá bez lidské přítomnosti.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Kdy je bezpečné se vrátit do prostoru?</div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Po dokončení sanitačního cyklu je nutné vyčkat minimálně 100 minut na přirozený rozpad ozonu na kyslík. Poté se prostor důkladně odvětrá. Teprve když je koncentrace ozonu na běžné úrovni, je prostor zcela bezpečný pro návrat.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Používáte při sanitaci chemii?</div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Ne, proces je veden zcela bez chemických prostředků. Ozon je přírodní molekula kyslíku (O₃), která po splnění své funkce se samovolně rozpadá zpět na běžný kyslík (O₂). V prostoru nezůstávají žádná chemická rezidua.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Může ozon poškodit některé materiály?</div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Ano, při vyšších koncentracích může ozon urychlit degradaci některých typů plastů, gumy a působit na povrchy náchylné ke korozi. Proto před sanitací citlivé předměty buď odstraníme, nebo zakryjeme. Běžný nábytek, sklo, keramika a většina materiálů není ohrožena.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Máte řešení i pro sanitaci vybavení a předmětů?</div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Ano, pro sanitaci vybraných předmětů používáme ozonový box OZON CLEAN BOX – DRY. Do boxu lze vložit nástroje, oblečení, obuv nebo jiné předměty a nechat je ošetřit ozonem. Toto řešení je ideální pro zdravotnictví, sport nebo služby.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Vyřeší ozon problém s plísněmi natrvalo?</div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Ozon likviduje aktivní plísně a spory v prostoru, ale neřeší příčinu jejich vzniku – kterou je obvykle vlhkost. Pokud zůstane zdroj vlhkosti (tepelný most, špatné větrání), plísně se mohou vrátit. Proto doporučujeme sanitaci kombinovat s odstraněním příčiny vlhkosti.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Jak dlouho trvá sanitace prostoru?</div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Samotný sanitační cyklus trvá typicky 2-4 hodiny dle velikosti prostoru. K tomu je potřeba přidat minimálně 100 minut na rozpad ozonu a další čas na odvětrání. Celkově počítejte s 4-6 hodinami, během kterých prostor není přístupný.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Je ozonová sanitace vhodná pro alergiky?</div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Ano. Ozon likviduje alergeny včetně roztočů domácího prachu, pylu a alergenů zvířat. Zároveň nezanechává žádná chemická rezidua, která by mohla alergiky dráždit. Po dokončení procesu a odvětrání je prostor čistý a bezpečný.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Nabízíte i pravidelné servisní programy?</div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Ano, nabízíme programy PREVENT (pro domácnosti a kanceláře) a CLINIC STANDARD (pro zdravotnictví) s pravidelnou sanitací 1-4× měsíčně za pevnou měsíční cenu. Pravidelná sanitace udržuje dlouhodobě vysokou kvalitu prostředí.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Potřebuji něco speciálně připravit před sanitací?</div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Ano. Prostor je potřeba vyprázdnit od osob, zvířat a rostlin. Citlivé předměty (elektronika, některé plasty) je vhodné odstranit nebo zakrýt. Okna a dveře se uzavřou. Podrobný postup vám před sanitací vysvětlíme a pomůžeme s přípravou.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>VitalSpace</h3>
+                <p style="color: var(--light-cyan); margin-top: 1rem;">
+                    Profesionální sanitace prostoru ozonem – bez chemie, s vědeckým základem.
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Programy</h3>
+                <ul>
+                    <li><a href="#form">Reset prostoru</a></li>
+                    <li><a href="#form">Prevent program</a></li>
+                    <li><a href="#form">Clinic Standard</a></li>
+                    <li><a href="#form">Pronájem zařízení</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Pro segmenty</h3>
+                <ul>
+                    <li><a href="#form">Zdravotnictví</a></li>
+                    <li><a href="#form">Školy & školky</a></li>
+                    <li><a href="#form">Ubytování</a></li>
+                    <li><a href="#form">Kanceláře</a></li>
+                    <li><a href="#form">Domácnosti</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Kontakt</h3>
+                <ul>
+                    <li>+420 734 451 278</li>
+                    <li>info@vitalspace.cz</li>
+                    <li>Plzeň & Praha</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>Používáme zařízení OZON CLEANER od Health-City – certifikována pro plošnou dezinfekci uzavřených prostor včetně zdravotnických zařízení.</p>
+            <p style="margin-top: 1rem;">© 2025 VitalSpace. Všechna práva vyhrazena. | <a href="#">Ochrana osobních údajů</a> | <a href="#">Podmínky</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const isActive = item.classList.contains('active');
+                
+                // Close all items
+                document.querySelectorAll('.faq-item').forEach(i => {
+                    i.classList.remove('active');
+                });
+                
+                // Open clicked item if it wasn't active
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Segment Tabs
+        function switchSegment(segment) {
+            // Remove active class from all tabs and contents
+            document.querySelectorAll('.segment-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelectorAll('.segment-content').forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Add active class to clicked tab and corresponding content
+            event.target.classList.add('active');
+            document.getElementById(segment).classList.add('active');
+        }
+
+        // Form submission (basic example - you'd integrate with your backend)
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Děkujeme za poptávku! Ozveme se vám do 24 hodin.');
+            // Here you would send the form data to your backend
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

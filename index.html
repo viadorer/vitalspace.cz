@@ -856,16 +856,14 @@
                 <div id="realvisor-form"></div>
                 <script src="https://realvisor-com-widget.vercel.app/widget.iife.js"></script>
                 <script>
-                  RealvisorWidget.createValuoForm(document.getElementById('realvisor-form'), {
+                  RealvisorWidget.createContactForm(document.getElementById('realvisor-form'), {
                     apiUrl: 'https://api-production-88cf.up.railway.app/api/v1',
-                    formCode: 'vital-space',
+                    formCode: 'kontaktni-formu-49035',
                     primaryColor: '#00D4FF',
+                    borderRadius: 'lg',
                     maxWidth: '600px',
-                    shadow: 'md',
-                    borderRadius: '12px',
-                    onSuccess: (data) => {
-                      console.log('Formulář odeslán:', data);
-                    }
+                    shadow: 'none',
+                    showHeader: false
                   });
                 </script>
                 

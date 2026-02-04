@@ -18,7 +18,10 @@
          ======================================== -->
     <header class="header">
         <div class="header-content">
-            <a href="index.html" class="logo">Vital<span>Space</span></a>
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="VitalSpace Logo" class="logo-image">
+                <span class="logo-text">Vital<span>Space</span></span>
+            </a>
             <nav class="nav">
                 <a href="#programs">Programy</a>
                 <a href="#diagnostika">Diagnostika</a>
@@ -848,15 +851,23 @@
 
             <div class="form-container">
                 <!-- ============================================
-                     FORM WIDGET PLACEHOLDER
-                     Zde vložte kód formulářového widgetu
-                     (např. Typeform, Tally, HubSpot, atd.)
+                     REALVISOR CONTACT FORM WIDGET
                      ============================================ -->
-                <div class="form-widget-placeholder">
-                    <h4>📝 Místo pro formulářový widget</h4>
-                    <p>Zde bude vložen externí formulářový widget</p>
-                    <p><small>Podporované služby: Typeform, Tally, HubSpot, Google Forms, Jotform...</small></p>
-                </div>
+                <div id="realvisor-form"></div>
+                <script src="https://realvisor-com-widget.vercel.app/widget.iife.js"></script>
+                <script>
+                  RealvisorWidget.createValuoForm(document.getElementById('realvisor-form'), {
+                    apiUrl: 'https://api-production-88cf.up.railway.app/api/v1',
+                    formCode: 'vital-space',
+                    primaryColor: '#00D4FF',
+                    maxWidth: '600px',
+                    shadow: 'md',
+                    borderRadius: '12px',
+                    onSuccess: (data) => {
+                      console.log('Formulář odeslán:', data);
+                    }
+                  });
+                </script>
                 
                 <!-- Fallback formulář - odkomentovat pokud nebude widget -->
                 <!--

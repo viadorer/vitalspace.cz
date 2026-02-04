@@ -11,6 +11,9 @@
     
     <!-- Stylesheet -->
     <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
     <!-- ========================================
@@ -549,12 +552,30 @@
             </div>
 
             <div class="segments-tabs">
-                <div class="segment-tab active" data-segment="zdravotnictvi" onclick="switchSegment('zdravotnictvi')">🏥 Zdravotnictví</div>
-                <div class="segment-tab" data-segment="skoly" onclick="switchSegment('skoly')">🏫 Školy & školky</div>
-                <div class="segment-tab" data-segment="ubytovani" onclick="switchSegment('ubytovani')">🏨 Ubytování</div>
-                <div class="segment-tab" data-segment="kancelare" onclick="switchSegment('kancelare')">💼 Kanceláře</div>
-                <div class="segment-tab" data-segment="domacnosti" onclick="switchSegment('domacnosti')">🏠 Domácnosti</div>
-                <div class="segment-tab" data-segment="instituce" onclick="switchSegment('instituce')">🏛️ Instituce</div>
+                <div class="segment-tab active" data-segment="zdravotnictvi" onclick="switchSegment('zdravotnictvi')">
+                    <i data-lucide="hospital" class="tab-icon"></i>
+                    <span>Zdravotnictví</span>
+                </div>
+                <div class="segment-tab" data-segment="skoly" onclick="switchSegment('skoly')">
+                    <i data-lucide="school" class="tab-icon"></i>
+                    <span>Školy & školky</span>
+                </div>
+                <div class="segment-tab" data-segment="ubytovani" onclick="switchSegment('ubytovani')">
+                    <i data-lucide="hotel" class="tab-icon"></i>
+                    <span>Ubytování</span>
+                </div>
+                <div class="segment-tab" data-segment="kancelare" onclick="switchSegment('kancelare')">
+                    <i data-lucide="briefcase" class="tab-icon"></i>
+                    <span>Kanceláře</span>
+                </div>
+                <div class="segment-tab" data-segment="domacnosti" onclick="switchSegment('domacnosti')">
+                    <i data-lucide="home" class="tab-icon"></i>
+                    <span>Domácnosti</span>
+                </div>
+                <div class="segment-tab" data-segment="instituce" onclick="switchSegment('instituce')">
+                    <i data-lucide="landmark" class="tab-icon"></i>
+                    <span>Instituce</span>
+                </div>
             </div>
 
             <div class="segment-content active" id="zdravotnictvi">
@@ -564,17 +585,23 @@
 
                     <div class="segment-benefits">
                         <div class="benefit-item">
-                            <span class="benefit-icon emoji">✓</span>
+                            <div class="benefit-icon">
+                                <i data-lucide="clock"></i>
+                            </div>
                             <h4>Mimo provoz</h4>
                             <p>Sanitace po ordinační době nebo o víkendu</p>
                         </div>
                         <div class="benefit-item">
-                            <span class="benefit-icon emoji">📋</span>
+                            <div class="benefit-icon">
+                                <i data-lucide="clipboard-check"></i>
+                            </div>
                             <h4>Protokol zásahu</h4>
                             <p>Dokumentace pro audit a interní potřeby</p>
                         </div>
                         <div class="benefit-item">
-                            <span class="benefit-icon emoji">🔄</span>
+                            <div class="benefit-icon">
+                                <i data-lucide="repeat"></i>
+                            </div>
                             <h4>Pravidelný režim</h4>
                             <p>1-4× měsíčně dle potřeby provozu</p>
                         </div>
@@ -591,17 +618,23 @@
 
                     <div class="segment-benefits">
                         <div class="benefit-item">
-                            <span class="benefit-icon emoji">🌙</span>
+                            <div class="benefit-icon">
+                                <i data-lucide="moon"></i>
+                            </div>
                             <h4>Večer nebo víkend</h4>
                             <p>Sanitace mimo výuku</p>
                         </div>
                         <div class="benefit-item">
-                            <span class="benefit-icon emoji">🏖️</span>
+                            <div class="benefit-icon">
+                                <i data-lucide="sun"></i>
+                            </div>
                             <h4>Prázdninový reset</h4>
                             <p>Hloubková sanitace o prázdninách</p>
                         </div>
                         <div class="benefit-item">
-                            <span class="benefit-icon emoji">🦠</span>
+                            <div class="benefit-icon">
+                                <i data-lucide="shield-check"></i>
+                            </div>
                             <h4>Snížení nemocnosti</h4>
                             <p>Méně přenosu infekce mezi dětmi</p>
                         </div>
@@ -618,17 +651,23 @@
 
                     <div class="segment-benefits">
                         <div class="benefit-item">
-                            <span class="benefit-icon emoji">⚡</span>
+                            <div class="benefit-icon">
+                                <i data-lucide="zap"></i>
+                            </div>
                             <h4>Rychlé turnusy</h4>
                             <p>Pokoje připravené za 2-3 hodiny</p>
                         </div>
                         <div class="benefit-item">
-                            <span class="benefit-icon emoji">💰</span>
+                            <div class="benefit-icon">
+                                <i data-lucide="package"></i>
+                            </div>
                             <h4>Balíčky pokojů</h4>
                             <p>Výhodné ceny při více pokojích</p>
                         </div>
                         <div class="benefit-item">
-                            <span class="benefit-icon emoji">⭐</span>
+                            <div class="benefit-icon">
+                                <i data-lucide="star"></i>
+                            </div>
                             <h4>Vyšší standard</h4>
                             <p>Marketing pro náročné hosty</p>
                         </div>
@@ -645,17 +684,23 @@
 
                     <div class="segment-benefits">
                         <div class="benefit-item">
-                            <span class="benefit-icon emoji">📈</span>
+                            <div class="benefit-icon">
+                                <i data-lucide="trending-up"></i>
+                            </div>
                             <h4>Méně absencí</h4>
                             <p>Nižší riziko přenosu infekce</p>
                         </div>
                         <div class="benefit-item">
-                            <span class="benefit-icon emoji">🧠</span>
+                            <div class="benefit-icon">
+                                <i data-lucide="brain"></i>
+                            </div>
                             <h4>Lepší výkon</h4>
                             <p>Kvalitní prostředí = vyšší koncentrace</p>
                         </div>
                         <div class="benefit-item">
-                            <span class="benefit-icon emoji">🤝</span>
+                            <div class="benefit-icon">
+                                <i data-lucide="users"></i>
+                            </div>
                             <h4>Benefit pro lidi</h4>
                             <p>Moderní péče o zaměstnance</p>
                         </div>
@@ -672,17 +717,23 @@
 
                     <div class="segment-benefits">
                         <div class="benefit-item">
-                            <span class="benefit-icon emoji">🏠</span>
+                            <div class="benefit-icon">
+                                <i data-lucide="heart-pulse"></i>
+                            </div>
                             <h4>Zdravý domov</h4>
                             <p>Kvalitní regenerace a spánek</p>
                         </div>
                         <div class="benefit-item">
-                            <span class="benefit-icon emoji">🌱</span>
+                            <div class="benefit-icon">
+                                <i data-lucide="leaf"></i>
+                            </div>
                             <h4>Bez chemie</h4>
                             <p>Žádná toxická rezidua</p>
                         </div>
                         <div class="benefit-item">
-                            <span class="benefit-icon emoji">💤</span>
+                            <div class="benefit-icon">
+                                <i data-lucide="bed"></i>
+                            </div>
                             <h4>Lepší spánek</h4>
                             <p>Čistý vzduch = kvalitní odpočinek</p>
                         </div>
@@ -699,17 +750,23 @@
 
                     <div class="segment-benefits">
                         <div class="benefit-item">
-                            <span class="benefit-icon emoji">🏛️</span>
+                            <div class="benefit-icon">
+                                <i data-lucide="building-2"></i>
+                            </div>
                             <h4>Veřejné prostory</h4>
                             <p>Úřady, knihovny, kulturní domy</p>
                         </div>
                         <div class="benefit-item">
-                            <span class="benefit-icon emoji">👴</span>
+                            <div class="benefit-icon">
+                                <i data-lucide="hand-helping"></i>
+                            </div>
                             <h4>Sociální služby</h4>
                             <p>Domovy seniorů, pečovatelské služby</p>
                         </div>
                         <div class="benefit-item">
-                            <span class="benefit-icon emoji">🏃</span>
+                            <div class="benefit-icon">
+                                <i data-lucide="dumbbell"></i>
+                            </div>
                             <h4>Sport a volný čas</h4>
                             <p>Tělocvičny, šatny, fitness centra</p>
                         </div>
@@ -1072,5 +1129,10 @@
 
     <!-- JavaScript -->
     <script src="js/main.js"></script>
+    
+    <!-- Initialize Lucide Icons -->
+    <script>
+        lucide.createIcons();
+    </script>
 </body>
 </html>

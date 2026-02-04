@@ -907,18 +907,18 @@
             </div>
 
             <div class="form-container">
-                <!-- ============================================
-                     REALVISOR CONTACT FORM WIDGET
-                     ============================================ -->
+                <!-- Kontejner pro formulář -->
                 <div id="realvisor-form"></div>
+
+                <!-- Widget script -->
                 <script src="https://realvisor-com-widget.vercel.app/widget.iife.js"></script>
                 <script>
                   RealvisorWidget.createContactForm(document.getElementById('realvisor-form'), {
                     apiUrl: 'https://api-production-88cf.up.railway.app/api/v1',
                     formCode: 'kontaktni-formu-49035',
-                    primaryColor: '#001F3F',
-                    borderRadius: '20px',
-                    maxWidth: '600px',
+                    primaryColor: '#2563eb',
+                    borderRadius: 'lg',
+                    maxWidth: '700px',
                     shadow: 'none'
                   });
                 </script>
